@@ -1,2 +1,162 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef4fb;
+  --color-brand-100: #dbe7f6;
+  --color-brand-500: #1f74d1;
+  --color-brand-600: #1565c0;
+  --color-brand-700: #0f4f99;
+  --color-brand-800: #0b3f7c;
+  --color-brand-900: #0a2e5c;
+  --color-brand-950: #071d3b;
+
+  --animate-nav-in: nav-in 180ms ease-out;
+  --animate-btn-pop: btn-pop 300ms ease-in-out;
+  --animate-slide-progress: slide-progress var(--slide-interval, 6000ms) linear forwards;
+
+  @keyframes slide-progress {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes btn-pop {
+    50% {
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes nav-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* CTA con barrido de color al hover (adaptado de Uiverse.io, abrahamcalsin).
+   El color del barrido se cambia con [--sweep-color:...]; el contenido va envuelto en un <span>. */
+@utility btn-sweep {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    right: 0;
+    z-index: -1;
+    width: 0;
+    background: var(--sweep-color, var(--color-brand-600));
+    transition: width 0.4s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+
+  &:hover > span {
+    animation: var(--animate-btn-pop);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      transition: none;
+    }
+
+    &:hover > span {
+      animation: none;
+    }
+  }
+}
+
+/* Contenedor del sitio: mismo ancho y márgenes que el navbar y el footer. */
+@utility site-container {
+  width: 100%;
+  max-width: 1536px;
+  margin-inline: auto;
+  padding-inline: calc(var(--spacing) * 5);
+
+  @variant xl {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+
+  @variant 2xl {
+    padding-inline: calc(var(--spacing) * 12);
+  }
+}
+
+/* Etiqueta pequeña sobre los títulos de sección. */
+@utility eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal al hacer scroll y tilt 3D (src/scripts/effects.js).
+   El reveal usa `translate` y el tilt `transform`, así que pueden ir en el mismo elemento.
+   Sin JS (.js lo agrega header.php) el contenido se muestra normal.
+--------------------------------------------------------------------------- */
+[data-reveal],
+[data-tilt] {
+  transition-property: opacity, translate, transform, box-shadow, border-color, color, background-color;
+  transition-duration: 800ms, 800ms, 500ms, 400ms, 150ms, 150ms, 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms), 0ms, 0ms, 0ms, 0ms, 0ms;
+}
+
+.js [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  translate: 0 2.5rem;
+}
+
+[data-tilt] {
+  position: relative;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(var(--tilt-scale, 1));
+}
+
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgb(255 255 255 / 0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+[data-tilt].is-tilting {
+  --tilt-scale: 1.02;
+  z-index: 1;
+  transition-duration: 800ms, 800ms, 120ms, 300ms, 150ms, 150ms, 150ms;
+  box-shadow:
+    var(--shadow-x, 0px) var(--shadow-y, 28px) 48px -16px rgb(7 29 59 / 0.35),
+    0 8px 16px -8px rgb(7 29 59 / 0.15);
+}
+
+[data-tilt].is-tilting::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not(.is-revealed) {
+    translate: none;
+  }
+}
