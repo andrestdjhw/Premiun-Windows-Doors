@@ -3,9 +3,9 @@
 $roles = array(
   array('role' => 'Developers', 'protects' => 'Capital and schedule', 'link' => array('Project Support', '/professionals/project-support/')),
   array('role' => 'Architects', 'protects' => 'Specification and compliance', 'link' => array('Specifications', '/professionals/specifications/')),
-  array('role' => 'General contractors', 'protects' => 'Execution', 'link' => array('Technical Resources', '/professionals/technical-resources/')),
+  array('role' => 'General contractors', 'protects' => 'Execution', 'link' => array('Technical Resources', '/resources/technical/')),
   array('role' => 'Purchasing', 'protects' => 'Cost and terms', 'link' => array('Request a Quote', '/request-a-quote/')),
-  array('role' => 'Installers', 'protects' => 'Consistency and fit', 'link' => array('Installation Guides', '/resources/installation-guides/')),
+  array('role' => 'Installers', 'protects' => 'Consistency and fit', 'link' => array('Installation Guides', '/resources/technical/?type=installation-guide')),
 );
 ?>
 <section class="bg-slate-50 py-20 lg:py-28">

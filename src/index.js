@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client"
 import Header from "./components/Header"
 import Footer from "./components/Footer/Footer"
 import { initHeroSlider, initReveal, initTilt } from "./scripts/effects"
+import { initAutoSubmit, initEmailForms } from "./scripts/forms"
+import { initFaqSearch } from "./scripts/faqs"
 
 const readConfig = el => JSON.parse(el.dataset.config || "{}")
 
@@ -19,3 +21,6 @@ if (footerRoot) {
 initReveal()
 initTilt()
 initHeroSlider()
+initEmailForms()
+initAutoSubmit()
+initFaqSearch()

@@ -32,7 +32,7 @@
       </a>
 
       <a
-        href="<?php echo esc_url(home_url('/compare-series/')); ?>"
+        href="<?php echo esc_url(home_url('/series/#compare')); ?>"
         <?php echo pwd_reveal(1); ?>
         data-tilt
         class="group flex flex-col rounded-sm border border-slate-200 bg-white p-8 lg:col-span-4 lg:p-10"

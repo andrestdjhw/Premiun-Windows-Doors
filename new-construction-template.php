@@ -22,7 +22,7 @@ get_template_part('template-parts/project-type', null, array(
     'image' => array('1024' => '2026/09/Serene_Series.jpg'),
     'buttons' => array(
       array('Request a Quote', home_url('/request-a-quote/'), 'light'),
-      array('Technical Resources', home_url('/professionals/technical-resources/'), 'outline-light'),
+      array('Technical Resources', home_url('/resources/technical/'), 'outline-light'),
     ),
   ),
   'intro' => 'In new construction, windows and doors are decided alongside the plans. Aligning the product, the documentation and the schedule early keeps the openings from holding up the build.',
@@ -35,16 +35,16 @@ get_template_part('template-parts/project-type', null, array(
   ),
   'markets' => array('residential', 'multifamily', 'commercial'),
   'resources' => array(
-    'Technical drawings' => '/resources/technical-drawings/',
+    'Technical drawings' => '/resources/technical/?type=detail-drawing',
     'Specifications' => '/professionals/specifications/',
     'Certifications' => '/resources/certifications/',
-    'Installation guides' => '/resources/installation-guides/',
+    'Installation guides' => '/resources/technical/?type=installation-guide',
   ),
   'cta_title' => 'Plan the openings for your build',
   'ctas' => array(
     array('label' => 'Request a Quote', 'text' => 'Share your plans and our team will follow up.', 'href' => '/request-a-quote/'),
-    array('label' => 'Technical Resources', 'text' => 'Drawings, certifications and specifications.', 'href' => '/professionals/technical-resources/'),
-    array('label' => 'Find the Right Series', 'text' => 'Compare the five series side by side.', 'href' => '/compare-series/'),
+    array('label' => 'Technical Resources', 'text' => 'Drawings, certifications and specifications.', 'href' => '/resources/technical/'),
+    array('label' => 'Find the Right Series', 'text' => 'Compare the five series side by side.', 'href' => '/series/#compare'),
   ),
 ));
 

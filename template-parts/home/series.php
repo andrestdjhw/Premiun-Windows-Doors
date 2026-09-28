@@ -17,7 +17,7 @@ $series = array(
         <p class="mt-4 text-lg leading-relaxed text-slate-600">Different materials, aesthetics, performance priorities, and applications. Compare them side by side to identify the right fit for the project.</p>
       </div>
       <div class="shrink-0">
-        <?php echo pwd_button('Compare Series', home_url('/compare-series/'), 'outline'); ?>
+        <?php echo pwd_button('Compare Series', home_url('/series/#compare'), 'outline'); ?>
       </div>
     </div>
 

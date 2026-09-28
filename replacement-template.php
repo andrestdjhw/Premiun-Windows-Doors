@@ -38,12 +38,12 @@ get_template_part('template-parts/project-type', null, array(
   'resources' => array(
     'Glass options' => '/capabilities/glass-options/',
     'Finishes & colors' => '/capabilities/finishes-colors/',
-    'Installation guides' => '/resources/installation-guides/',
+    'Installation guides' => '/resources/technical/?type=installation-guide',
     'Warranty information' => '/warranty/',
   ),
   'cta_title' => 'Start with the opening',
   'ctas' => array(
-    array('label' => 'Explore Windows', 'text' => 'Picture, casement, awning, sliding, hung and specialty shapes.', 'href' => '/windows/'),
+    array('label' => 'Explore Windows', 'text' => 'Picture, casement, awning, sliding, hung, arch and special shapes.', 'href' => '/windows/'),
     array('label' => 'Explore Doors', 'text' => 'Sliding patio, French swing, multi-slide and multi-fold.', 'href' => '/doors/'),
     array('label' => 'Request a Quote', 'text' => 'Share your openings and our team will follow up.', 'href' => '/request-a-quote/'),
   ),

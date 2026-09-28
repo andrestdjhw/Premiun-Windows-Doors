@@ -22,7 +22,7 @@ get_template_part('template-parts/project-type', null, array(
     'text' => 'Glass and frame options that improve comfort and energy performance, with ratings documented where applicable.',
     'image' => array('700' => '2026/09/Elegance_Series.jpg'),
     'buttons' => array(
-      array('Compare Series', home_url('/compare-series/'), 'light'),
+      array('Compare Series', home_url('/series/#compare'), 'light'),
       array('Energy Efficiency', home_url('/capabilities/energy-efficiency/'), 'outline-light'),
     ),
   ),
@@ -39,11 +39,11 @@ get_template_part('template-parts/project-type', null, array(
     'Energy efficiency' => '/capabilities/energy-efficiency/',
     'Glass options' => '/capabilities/glass-options/',
     'Certifications' => '/resources/certifications/',
-    'Compare series' => '/compare-series/',
+    'Compare series' => '/series/#compare',
   ),
   'cta_title' => 'Find the right performance for the project',
   'ctas' => array(
-    array('label' => 'Find the Right Series', 'text' => 'Compare the five series side by side.', 'href' => '/compare-series/'),
+    array('label' => 'Find the Right Series', 'text' => 'Compare the five series side by side.', 'href' => '/series/#compare'),
     array('label' => 'Energy Efficiency', 'text' => 'How glass and frames affect performance.', 'href' => '/capabilities/energy-efficiency/'),
     array('label' => 'Request a Quote', 'text' => 'Share your project and our team will follow up.', 'href' => '/request-a-quote/'),
   ),

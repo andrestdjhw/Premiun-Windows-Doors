@@ -28,7 +28,7 @@ export function getFooterData({ homeUrl = "/" }) {
     {
       title: "Professionals",
       links: [
-        { label: "Technical Resources", href: u("/professionals/technical-resources/") },
+        { label: "Technical Resources", href: u("/resources/technical/") },
         { label: "Project Support", href: u("/professionals/project-support/") },
         { label: "Dealer Program", href: u("/professionals/dealer-program/") },
         { label: "Become a Dealer", href: u("/professionals/become-a-dealer/") },
@@ -51,7 +51,7 @@ export function getFooterData({ homeUrl = "/" }) {
         { label: "Warranty Information", href: u("/warranty/") },
         { label: "Service Request", href: u("/service-request/") },
         { label: "Product Catalog", href: u("/resources/product-catalog/") },
-        { label: "Installation Guides", href: u("/resources/installation-guides/") },
+        { label: "Installation Guides", href: u("/resources/technical/?type=installation-guide") },
         { label: "FAQs", href: u("/faqs/") },
       ],
     },
@@ -60,7 +60,6 @@ export function getFooterData({ homeUrl = "/" }) {
   const legal = [
     { label: "Privacy Policy", href: u("/privacy-policy/") },
     { label: "Terms & Conditions", href: u("/terms-and-conditions/") },
-    { label: "Accessibility", href: u("/accessibility/") },
   ]
 
   return { columns, legal }

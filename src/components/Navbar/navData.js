@@ -19,23 +19,22 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         title: "Windows",
         links: [
           { label: "All Windows", href: u("/windows/") },
-          { label: "Picture Windows", href: u("/windows/picture/") },
-          { label: "Casement Windows", href: u("/windows/casement/") },
-          { label: "Awning Windows", href: u("/windows/awning/") },
-          { label: "Horizontal Sliding Windows", href: u("/windows/horizontal-sliding/") },
-          { label: "Single-Hung Windows", href: u("/windows/single-hung/") },
-          { label: "Double-Hung Windows", href: u("/windows/double-hung/") },
-          { label: "Specialty & Shape Windows", href: u("/windows/specialty-shape/") },
+          { label: "Picture Windows", href: u("/windows/picture-windows/") },
+          { label: "Casement & Awning Windows", href: u("/windows/casement-awning-windows/") },
+          { label: "Horizontal Sliding Windows", href: u("/windows/horizontal-sliding-windows/") },
+          { label: "Single-Hung Windows", href: u("/windows/single-hung-windows/") },
+          { label: "Double-Hung Windows", href: u("/windows/double-hung-windows/") },
+          { label: "Arch & Special Shape Windows", href: u("/windows/arch-special-shape-windows/") },
         ],
       },
       doors: {
         title: "Doors",
         links: [
           { label: "All Doors", href: u("/doors/") },
-          { label: "Sliding Patio Doors", href: u("/doors/sliding-patio/") },
-          { label: "French Swing Doors", href: u("/doors/french-swing/") },
-          { label: "Multi-Slide Doors", href: u("/doors/multi-slide/") },
-          { label: "Multi-Fold Doors", href: u("/doors/multi-fold/") },
+          { label: "Patio Sliding Doors", href: u("/doors/patio-sliding-doors/") },
+          { label: "French Swing Doors", href: u("/doors/french-swing-doors/") },
+          { label: "Multi-Slide Doors", href: u("/doors/multiple-sliding-doors/") },
+          { label: "Multi-Fold Doors", href: u("/doors/multiple-folding-doors/") },
         ],
       },
       series: {
@@ -53,7 +52,7 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         image: img("compare-series.jpg"),
         title: "Find the right series for your project.",
         text: "Compare features, performance and options side by side.",
-        cta: { label: "Compare Series", href: u("/compare-series/") },
+        cta: { label: "Compare Series", href: u("/series/#compare") },
       },
     },
 
@@ -99,10 +98,11 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
       audiences: [
         {
           title: "Architects & Specifiers",
+          href: u("/professionals/architects-specifiers/"),
           text: "Design with confidence. Access technical resources, drawings, certifications and support.",
           image: upload("2026/09/ArchitectsSpecifiers-768x512.jpg"),
           links: [
-            { label: "Technical Resources", href: u("/professionals/technical-resources/") },
+            { label: "Technical Resources", href: u("/resources/technical/") },
             { label: "Specifications", href: u("/professionals/specifications/") },
             { label: "Finish & Glass Options", href: u("/professionals/finish-glass-options/") },
             { label: "Request Support", href: u("/professionals/request-support/") },
@@ -110,6 +110,7 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         },
         {
           title: "Developers & General Contractors",
+          href: u("/professionals/developers-general-contractors/"),
           text: "Reliable solutions for projects of any scale. Consistent quality, competitive lead times and dedicated project support.",
           image: upload("2026/09/DevelopersGeneralContractors-768x512.jpg"),
           links: [
@@ -121,6 +122,7 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         },
         {
           title: "Dealers & Distributors",
+          href: u("/professionals/dealers-distributors/"),
           text: "A strong partner for your business. High-quality products, training, marketing support and a seamless ordering experience.",
           image: upload("2026/09/DealersDistributors-768x512.jpg"),
           links: [
@@ -161,8 +163,9 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
       groups: [
         {
           title: "Manufacturing",
+          href: u("/capabilities/manufacturing/"),
           links: [
-            { label: "Custom Sizes & Shapes", href: u("/capabilities/custom-sizes/") },
+            { label: "Custom Sizes & Shapes", href: u("/capabilities/customization/") },
             { label: "Finishes & Colors", href: u("/capabilities/finishes-colors/") },
             { label: "Glass Options", href: u("/capabilities/glass-options/") },
             { label: "Hardware & Accessories", href: u("/capabilities/hardware/") },
@@ -195,8 +198,8 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
           links: [
             { label: "Product Catalog", href: u("/resources/product-catalog/") },
             { label: "Brochures", href: u("/resources/brochures/") },
-            { label: "Technical Drawings", href: u("/resources/technical-drawings/") },
-            { label: "Installation Guides", href: u("/resources/installation-guides/") },
+            { label: "Technical Drawings", href: u("/resources/technical/?type=detail-drawing") },
+            { label: "Installation Guides", href: u("/resources/technical/?type=installation-guide") },
           ],
         },
         {
@@ -237,10 +240,16 @@ export function getMobileGroups(menu) {
       ]
     case "professionals":
       return [
-        ...menu.audiences.map(({ title, links }) => ({ title, links })),
+        ...menu.audiences.map(({ title, href, links }) => ({
+          title,
+          links: href ? [{ label: "Overview", href }, ...links] : links,
+        })),
         menu.quickLinks,
       ]
     default:
-      return menu.groups
+      // Los grupos con página propia muestran primero su "Overview" en el menú móvil.
+      return menu.groups.map(group =>
+        group.href ? { ...group, links: [{ label: "Overview", href: group.href }, ...group.links] } : group
+      )
   }
 }

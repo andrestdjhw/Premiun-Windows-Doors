@@ -7,7 +7,7 @@ $block = wp_parse_args($args, array('title' => '', 'ctas' => array()));
   <div class="site-container">
     <h2 <?php echo pwd_reveal(); ?> class="text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl"><?php echo esc_html($block['title']); ?></h2>
 
-    <ul class="mt-10 grid gap-4 md:grid-cols-3">
+    <ul class="mt-10 grid gap-4 <?php echo count($block['ctas']) === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'; ?>">
       <?php foreach ($block['ctas'] as $i => $cta) : ?>
         <li <?php echo pwd_reveal($i); ?>>
           <a href="<?php echo esc_url(home_url($cta['href'])); ?>" data-tilt class="group flex h-full flex-col rounded-sm bg-brand-900 p-8 text-white transition-colors hover:bg-brand-800">

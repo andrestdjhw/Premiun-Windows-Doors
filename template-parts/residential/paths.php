@@ -7,20 +7,20 @@ $paths = array(
     'links' => array(
       'Window openings' => '/windows/',
       'Patio & door openings' => '/doors/',
-      'Specialty & shape openings' => '/windows/specialty-shape/',
+      'Arch & special shape openings' => '/windows/arch-special-shape-windows/',
     ),
   ),
   array(
     'number' => '02',
     'title' => 'Start with the window or door style',
     'links' => array(
-      'Casement' => '/windows/casement/',
-      'Double-Hung' => '/windows/double-hung/',
-      'Horizontal Sliding' => '/windows/horizontal-sliding/',
-      'Picture' => '/windows/picture/',
-      'Sliding Patio' => '/doors/sliding-patio/',
-      'French Swing' => '/doors/french-swing/',
-      'Multi-Slide' => '/doors/multi-slide/',
+      'Casement & Awning' => '/windows/casement-awning-windows/',
+      'Double-Hung' => '/windows/double-hung-windows/',
+      'Horizontal Sliding' => '/windows/horizontal-sliding-windows/',
+      'Picture' => '/windows/picture-windows/',
+      'Patio Sliding' => '/doors/patio-sliding-doors/',
+      'French Swing' => '/doors/french-swing-doors/',
+      'Multi-Slide' => '/doors/multiple-sliding-doors/',
     ),
   ),
   array(

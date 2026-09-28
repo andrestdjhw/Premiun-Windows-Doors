@@ -31,7 +31,7 @@ get_header(); ?>
     ),
     'buttons' => array(
       array('Request Project Support', home_url('/professionals/project-support/'), 'light'),
-      array('Technical Resources', home_url('/professionals/technical-resources/'), 'outline-light'),
+      array('Technical Resources', home_url('/resources/technical/'), 'outline-light'),
     ),
   ));
 

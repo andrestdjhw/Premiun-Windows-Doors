@@ -1,6 +1,6 @@
 // Datos de contacto y redes sociales que muestra la barra superior.
 export const contact = {
-  email: "info@premiunwindows.com",
+  email: "info@premiumwindows.com",
   phone: { label: "800 608 0252", href: "tel:+18006080252" },
   address: {
     label: "15 Longitud Way, Corona, CA 92881",

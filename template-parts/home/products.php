@@ -5,30 +5,29 @@ $categories = array(
     'title' => 'Windows',
     'href' => home_url('/windows/'),
     'links' => array(
-      'Picture' => '/windows/picture/',
-      'Casement' => '/windows/casement/',
-      'Awning' => '/windows/awning/',
-      'Horizontal Sliding' => '/windows/horizontal-sliding/',
-      'Single-Hung' => '/windows/single-hung/',
-      'Double-Hung' => '/windows/double-hung/',
-      'Specialty & Shape' => '/windows/specialty-shape/',
+      'Picture' => '/windows/picture-windows/',
+      'Casement & Awning' => '/windows/casement-awning-windows/',
+      'Horizontal Sliding' => '/windows/horizontal-sliding-windows/',
+      'Single-Hung' => '/windows/single-hung-windows/',
+      'Double-Hung' => '/windows/double-hung-windows/',
+      'Arch & Special Shape' => '/windows/arch-special-shape-windows/',
     ),
   ),
   array(
     'title' => 'Doors',
     'href' => home_url('/doors/'),
     'links' => array(
-      'Sliding Patio' => '/doors/sliding-patio/',
-      'French Swing' => '/doors/french-swing/',
-      'Multi-Slide' => '/doors/multi-slide/',
-      'Multi-Fold' => '/doors/multi-fold/',
+      'Patio Sliding' => '/doors/patio-sliding-doors/',
+      'French Swing' => '/doors/french-swing-doors/',
+      'Multi-Slide' => '/doors/multiple-sliding-doors/',
+      'Multi-Fold' => '/doors/multiple-folding-doors/',
     ),
   ),
 );
 
 $requirements = array(
   array('title' => 'Performance', 'text' => 'Energy efficiency, sound control, coastal and high-wind.', 'href' => home_url('/capabilities/')),
-  array('title' => 'Material', 'text' => 'Compare vinyl and aluminum series side by side.', 'href' => home_url('/compare-series/')),
+  array('title' => 'Material', 'text' => 'Compare vinyl and aluminum series side by side.', 'href' => home_url('/series/#compare')),
   array('title' => 'Design', 'text' => 'Finishes, colors, glass and hardware options.', 'href' => home_url('/capabilities/finishes-colors/')),
 );
 ?>

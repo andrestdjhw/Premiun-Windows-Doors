@@ -131,8 +131,25 @@ function ProfessionalsMenu({ menu }) {
 
       {menu.audiences.map(audience => (
         <div key={audience.title} className="flex flex-col">
-          <Thumb src={audience.image} className="aspect-[3/2] w-full" />
-          <p className="mt-6 text-xl font-medium leading-snug tracking-tight text-slate-900">{audience.title}</p>
+          {audience.href ? (
+            <a href={audience.href} className="group block">
+              <span className="block overflow-hidden rounded-sm">
+                <Thumb
+                  src={audience.image}
+                  className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
+                />
+              </span>
+              <span className="mt-6 flex items-start justify-between gap-3 text-xl font-medium leading-snug tracking-tight text-slate-900 transition-colors group-hover:text-brand-700">
+                {audience.title}
+                <ArrowRight className="mt-1.5 size-4 shrink-0 text-brand-700 transition-transform group-hover:translate-x-1" />
+              </span>
+            </a>
+          ) : (
+            <>
+              <Thumb src={audience.image} className="aspect-[3/2] w-full" />
+              <p className="mt-6 text-xl font-medium leading-snug tracking-tight text-slate-900">{audience.title}</p>
+            </>
+          )}
           <p className="mt-2 text-[15px] leading-relaxed text-slate-600">{audience.text}</p>
           <ul className="mt-auto space-y-2 pt-6">
             {audience.links.map(link => (
@@ -181,7 +198,14 @@ function ColumnsMenu({ menu }) {
       <Intro intro={menu.intro} />
       {menu.groups.map(group => (
         <div key={group.title}>
-          <Eyebrow>{group.title}</Eyebrow>
+          {group.href ? (
+            <a href={group.href} className="group inline-flex items-center gap-2">
+              <Eyebrow className="transition-colors group-hover:text-brand-700">{group.title}</Eyebrow>
+              <ArrowRight className="size-3.5 text-brand-700 transition-transform group-hover:translate-x-1" />
+            </a>
+          ) : (
+            <Eyebrow>{group.title}</Eyebrow>
+          )}
           <ul className="mt-7 space-y-3">
             {group.links.map(link => (
               <li key={link.label}>

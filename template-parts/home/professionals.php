@@ -9,7 +9,7 @@ $audiences = array(
   array(
     'title' => 'Architects & Specifiers',
     'text' => 'Technical drawings, certifications, configurations, performance documentation.',
-    'links' => array('Technical Resources' => '/professionals/technical-resources/', 'Specifications' => '/professionals/specifications/', 'Finish & Glass Options' => '/professionals/finish-glass-options/'),
+    'links' => array('Technical Resources' => '/resources/technical/', 'Specifications' => '/professionals/specifications/', 'Finish & Glass Options' => '/professionals/finish-glass-options/'),
   ),
   array(
     'title' => 'Developers & General Contractors',

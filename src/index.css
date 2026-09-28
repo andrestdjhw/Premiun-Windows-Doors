@@ -160,3 +160,10 @@
     translate: none;
   }
 }
+
+/* Scroll suave para enlaces internos (ej. #submit-project). */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

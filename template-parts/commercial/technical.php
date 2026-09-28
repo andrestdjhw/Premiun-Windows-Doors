@@ -1,7 +1,7 @@
 <?php
 // Technical access: información fácil de encontrar antes de la etapa de cotización o submittal.
 $resources = array(
-  array('icon' => 'file-text', 'title' => 'Drawings', 'href' => '/resources/technical-drawings/'),
+  array('icon' => 'file-text', 'title' => 'Drawings', 'href' => '/resources/technical/?type=detail-drawing'),
   array('icon' => 'award', 'title' => 'Certifications', 'href' => '/resources/certifications/'),
   array('icon' => 'layers', 'title' => 'Frame details', 'href' => '/professionals/specifications/'),
   array('icon' => 'badge-check', 'title' => 'Glazing', 'href' => '/capabilities/glass-options/'),
@@ -19,7 +19,7 @@ $resources = array(
         Drawings, certifications, frame details, glazing, finishes, hardware, and project contacts&mdash;easy to find when the specification is still being written.
       </p>
       <div class="mt-8">
-        <?php echo pwd_button('Technical Resources', home_url('/professionals/technical-resources/'), 'light'); ?>
+        <?php echo pwd_button('Technical Resources', home_url('/resources/technical/'), 'light'); ?>
       </div>
     </div>
 

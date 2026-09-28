@@ -4,7 +4,7 @@ $resources = array(
   array('icon' => 'award', 'title' => 'Performance', 'href' => '/capabilities/energy-efficiency/'),
   array('icon' => 'layers', 'title' => 'Frame options', 'href' => '/capabilities/finishes-colors/'),
   array('icon' => 'badge-check', 'title' => 'Glazing', 'href' => '/capabilities/glass-options/'),
-  array('icon' => 'file-text', 'title' => 'Technical documents', 'href' => '/resources/technical-drawings/'),
+  array('icon' => 'file-text', 'title' => 'Technical documents', 'href' => '/resources/technical/?type=detail-drawing'),
   array('icon' => 'shield-check', 'title' => 'Warranty information', 'href' => '/warranty/'),
   array('icon' => 'file-badge', 'title' => 'Service resources', 'href' => '/service-request/'),
 );

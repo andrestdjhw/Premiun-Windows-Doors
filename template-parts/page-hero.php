@@ -6,7 +6,8 @@
 //   text     string opcional
 //   image    array ancho => archivo de uploads (el primero es el src por defecto)
 //   buttons  array opcional de array(label, href, variante de pwd_button)
-$hero = wp_parse_args($args, array('eyebrow' => '', 'title' => array(), 'text' => '', 'image' => array(), 'buttons' => array()));
+//   breadcrumbs array opcional de array(label, ruta); el último es la página actual
+$hero = wp_parse_args($args, array('eyebrow' => '', 'title' => array(), 'text' => '', 'image' => array(), 'buttons' => array(), 'breadcrumbs' => array()));
 $line_styles = array(
   'light' => 'font-light',
   'accent' => 'font-bold text-brand-500',
@@ -29,6 +30,30 @@ $line_styles = array(
 
   <div class="site-container py-24 lg:py-36">
     <div class="max-w-3xl">
+      <?php if ($hero['breadcrumbs']) : ?>
+        <nav aria-label="Breadcrumb" class="mb-8">
+          <ol class="flex flex-wrap items-center gap-2 text-sm text-white/60">
+            <li><a href="<?php echo esc_url(home_url('/')); ?>" class="transition-colors hover:text-white">Home</a></li>
+            <?php foreach ($hero['breadcrumbs'] as $i => $crumb) : $last = $i === count($hero['breadcrumbs']) - 1; ?>
+              <li aria-hidden="true">/</li>
+              <li>
+                <?php if ($last) : ?>
+                  <span aria-current="page" class="text-white"><?php echo esc_html($crumb[0]); ?></span>
+                <?php else : ?>
+                  <a href="<?php echo esc_url(home_url($crumb[1])); ?>" class="transition-colors hover:text-white"><?php echo esc_html($crumb[0]); ?></a>
+                <?php endif; ?>
+              </li>
+            <?php endforeach; ?>
+          </ol>
+        </nav>
+        <?php
+        $items = array(array('@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => home_url('/')));
+        foreach ($hero['breadcrumbs'] as $i => $crumb) {
+          $items[] = array('@type' => 'ListItem', 'position' => $i + 2, 'name' => $crumb[0], 'item' => home_url($crumb[1]));
+        }
+        printf('<script type="application/ld+json">%s</script>', wp_json_encode(array('@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $items), JSON_UNESCAPED_SLASHES));
+        ?>
+      <?php endif; ?>
       <p <?php echo pwd_reveal(); ?> class="font-mono text-xs uppercase tracking-[0.35em] text-brand-100"><?php echo esc_html($hero['eyebrow']); ?></p>
       <h1 <?php echo pwd_reveal(1); ?> class="mt-7 text-[40px] leading-[1.05] tracking-tight text-white sm:text-5xl xl:text-[64px]">
         <?php foreach ($hero['title'] as $line) : ?>

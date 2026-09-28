@@ -40,7 +40,7 @@ function pwd_navbar_config() {
 function pwd_contact_info() {
   return array(
     'company' => 'Premium Windows & Doors',
-    'email' => 'info@premiunwindows.com',
+    'email' => 'info@premiumwindows.com',
     'phone' => '800 608 0252',
     'phoneHref' => 'tel:+18006080252',
     'address' => '15 Longitud Way, Corona, CA 92881',
@@ -139,6 +139,24 @@ function pwd_ensure_template_pages() {
     'home' => array('title' => 'Home', 'template' => 'home-template.php'),
     'about' => array('title' => 'About', 'template' => 'about-template.php'),
     'solutions' => array('title' => 'Solutions', 'template' => 'solutions-template.php'),
+    'windows' => array('title' => 'Windows', 'template' => 'windows-template.php'),
+    'doors' => array('title' => 'Doors', 'template' => 'doors-template.php'),
+    'series' => array('title' => 'Series', 'template' => 'series-overview-template.php'),
+    'series/zenith' => array('title' => 'Zenith Series', 'template' => 'zenith-series-template.php'),
+    'series/timeless' => array('title' => 'Timeless Series', 'template' => 'timeless-series-template.php'),
+    'series/serene' => array('title' => 'Serene Series', 'template' => 'serene-series-template.php'),
+    'series/elegance' => array('title' => 'Elegance Series', 'template' => 'elegance-series-template.php'),
+    'series/aluminum' => array('title' => 'Aluminum Series', 'template' => 'aluminum-series-template.php'),
+    'doors/patio-sliding-doors' => array('title' => 'Patio Sliding Doors', 'template' => 'patio-sliding-template.php'),
+    'doors/french-swing-doors' => array('title' => 'French Swing Doors', 'template' => 'french-swing-template.php'),
+    'doors/multiple-sliding-doors' => array('title' => 'Multiple Sliding Doors', 'template' => 'multi-slide-template.php'),
+    'doors/multiple-folding-doors' => array('title' => 'Multiple Folding Doors', 'template' => 'multifolding-doors-template.php'),
+    'windows/picture-windows' => array('title' => 'Picture Windows', 'template' => 'picture-windows-template.php'),
+    'windows/casement-awning-windows' => array('title' => 'Casement & Awning Windows', 'template' => 'casement-awning-template.php'),
+    'windows/horizontal-sliding-windows' => array('title' => 'Horizontal Sliding Windows', 'template' => 'horizontal-sliding-template.php'),
+    'windows/single-hung-windows' => array('title' => 'Single Hung Windows', 'template' => 'single-hung-template.php'),
+    'windows/double-hung-windows' => array('title' => 'Double Hung Windows', 'template' => 'double-hung-template.php'),
+    'windows/arch-special-shape-windows' => array('title' => 'Arch & Special Shape Windows', 'template' => 'arch-special-shape-template.php'),
     'solutions/residential' => array('title' => 'Residential Solutions', 'template' => 'residential-template.php'),
     'solutions/multifamily' => array('title' => 'Multifamily Solutions', 'template' => 'multifamily-template.php'),
     'solutions/commercial' => array('title' => 'Commercial Solutions', 'template' => 'commercial-template.php'),
@@ -146,6 +164,15 @@ function pwd_ensure_template_pages() {
     'solutions/replacement' => array('title' => 'Replacement & Retrofit', 'template' => 'replacement-template.php'),
     'solutions/remodel' => array('title' => 'Remodel & Renovation', 'template' => 'remodel-template.php'),
     'solutions/energy-upgrades' => array('title' => 'Energy Upgrades', 'template' => 'energy-upgrades-template.php'),
+    'professionals/architects-specifiers' => array('title' => 'Architects & Specifiers', 'template' => 'architects-specifiers-template.php'),
+    'professionals/developers-general-contractors' => array('title' => 'Developers & General Contractors', 'template' => 'developers-contractors-template.php'),
+    'professionals/dealers-distributors' => array('title' => 'Dealers & Distributors', 'template' => 'dealer-distributors-template.php'),
+    'capabilities/manufacturing' => array('title' => 'Manufacturing', 'template' => 'manufacturing-template.php'),
+    'capabilities/customization' => array('title' => 'Customization', 'template' => 'customization-template.php'),
+    'resources' => array('title' => 'Resources', 'template' => 'resources-template.php'),
+    'resources/technical' => array('title' => 'Technical Resources', 'template' => 'technical-resources-template.php'),
+    'resources/brochures' => array('title' => 'Brochures & Literature', 'template' => 'brochure-template.php'),
+    'faqs' => array('title' => 'FAQs', 'template' => 'faqs-template.php'),
   );
   $done = (array) get_option('pwd_template_pages', array());
 
@@ -242,4 +269,246 @@ function pwd_arrow_link($label, $href, $class = 'text-brand-700 hover:text-brand
 function pwd_reveal($index = 0, $step = 100) {
   $delay = (int) $index * $step;
   return $delay ? sprintf('data-reveal style="--reveal-delay: %dms"', $delay) : 'data-reveal';
+}
+
+// Atributos de un formulario enviado con EmailJS (src/scripts/forms.js).
+// Las credenciales se definen en wp-config.php (no se versionan con el tema):
+//   define('PWD_EMAILJS_PUBLIC_KEY', '...');
+//   define('PWD_EMAILJS_SERVICE_ID', '...');
+//   define('PWD_EMAILJS_PROJECT_TEMPLATE_ID', '...');   // formulario de proyecto (Developers & GCs)
+//   define('PWD_EMAILJS_NEWSLETTER_TEMPLATE_ID', '...'); // suscripción opcional (Brochures)
+// Sin credenciales, el formulario se muestra pero avisa que no está configurado.
+function pwd_emailjs_attrs($template_constant, $form_name, $success_message = '') {
+  $attrs = array(
+    'data-emailjs-form' => $form_name,
+    'data-success-message' => $success_message,
+    'data-public-key' => defined('PWD_EMAILJS_PUBLIC_KEY') ? PWD_EMAILJS_PUBLIC_KEY : '',
+    'data-service-id' => defined('PWD_EMAILJS_SERVICE_ID') ? PWD_EMAILJS_SERVICE_ID : '',
+    'data-template-id' => defined($template_constant) ? constant($template_constant) : '',
+    'data-fallback-email' => pwd_contact_info()['email'],
+  );
+
+  return implode(' ', array_map(function ($key, $value) {
+    return sprintf('%s="%s"', $key, esc_attr($value));
+  }, array_keys($attrs), $attrs));
+}
+
+// Biblioteca técnica (/resources/technical/): los PDFs se suben a la Media Library y se clasifican
+// con estas taxonomías (Medios → editar archivo → "Editar más detalles"). Solo se listan los PDFs
+// que tienen un tipo de documento asignado. Así se conservan los nombres de archivo y sus URLs.
+function pwd_document_taxonomies() {
+  return array(
+    'pwd_series' => array('label' => 'Series', 'param' => 'series', 'terms' => array('Zenith', 'Timeless', 'Serene', 'Elegance', 'Aluminum')),
+    'pwd_product' => array('label' => 'Product', 'param' => 'product', 'terms' => array('Window', 'Door')),
+    'pwd_style' => array('label' => 'Style / operation', 'param' => 'style', 'terms' => array(
+      'Picture', 'Casement & Awning', 'Horizontal Sliding', 'Single-Hung', 'Double-Hung', 'Arch & Special Shape',
+      'Patio Sliding', 'French Swing', 'Multi-Slide', 'Multi-Fold',
+    )),
+    'pwd_doc_type' => array('label' => 'Document type', 'param' => 'type', 'terms' => array(
+      'Detail Drawing', 'Installation Guide', 'Certification', 'Performance', 'Warranty', 'Brochure',
+    )),
+    // Tipos de marco "where applicable": sin términos por defecto, se agregan desde el admin.
+    'pwd_frame_type' => array('label' => 'Frame type', 'param' => 'frame', 'terms' => array()),
+  );
+}
+
+function pwd_register_document_taxonomies() {
+  foreach (pwd_document_taxonomies() as $taxonomy => $config) {
+    register_taxonomy($taxonomy, 'attachment', array(
+      'label' => $config['label'],
+      'hierarchical' => true,
+      'public' => false,
+      'show_ui' => true,
+      'show_admin_column' => true,
+      'show_in_rest' => true,
+      'query_var' => false,
+      'rewrite' => false,
+      'update_count_callback' => '_update_generic_term_count',
+    ));
+  }
+
+  $version = get_option('pwd_document_terms_version');
+  if ($version === '5') return;
+
+  // v2: "Specialty & Shape" se separa en "Arch" y "Special Shape".
+  $old = get_term_by('slug', 'specialty-shape', 'pwd_style');
+  if ($old) wp_update_term($old->term_id, 'pwd_style', array('name' => 'Arch', 'slug' => 'arch'));
+
+  // v3: "Casement" y "Awning" se unen en "Casement & Awning" (los documentos de Awning pasan al nuevo término).
+  $casement = get_term_by('slug', 'casement', 'pwd_style');
+  if ($casement) wp_update_term($casement->term_id, 'pwd_style', array('name' => 'Casement & Awning', 'slug' => 'casement-awning'));
+  $awning = get_term_by('slug', 'awning', 'pwd_style');
+  $merged = get_term_by('slug', 'casement-awning', 'pwd_style');
+  if ($awning && $merged) {
+    foreach (get_objects_in_term($awning->term_id, 'pwd_style') as $object_id) {
+      wp_add_object_terms((int) $object_id, $merged->term_id, 'pwd_style');
+    }
+    wp_delete_term($awning->term_id, 'pwd_style');
+  }
+
+  // v5: "Sliding Patio" pasa a "Patio Sliding" (nombre del brief y del sitio actual).
+  $patio = get_term_by('slug', 'sliding-patio', 'pwd_style');
+  if ($patio) wp_update_term($patio->term_id, 'pwd_style', array('name' => 'Patio Sliding', 'slug' => 'patio-sliding'));
+
+  // v4: "Arch" y "Special Shape" se unen en "Arch & Special Shape".
+  $arch = get_term_by('slug', 'arch', 'pwd_style');
+  if ($arch) wp_update_term($arch->term_id, 'pwd_style', array('name' => 'Arch & Special Shape', 'slug' => 'arch-special-shape'));
+  $special = get_term_by('slug', 'special-shape', 'pwd_style');
+  $arch_merged = get_term_by('slug', 'arch-special-shape', 'pwd_style');
+  if ($special && $arch_merged) {
+    foreach (get_objects_in_term($special->term_id, 'pwd_style') as $object_id) {
+      wp_add_object_terms((int) $object_id, $arch_merged->term_id, 'pwd_style');
+    }
+    wp_delete_term($special->term_id, 'pwd_style');
+  }
+
+  foreach (pwd_document_taxonomies() as $taxonomy => $config) {
+    foreach ($config['terms'] as $term) {
+      if (!term_exists($term, $taxonomy)) wp_insert_term($term, $taxonomy);
+    }
+  }
+
+  update_option('pwd_document_terms_version', '5');
+}
+
+add_action('init', 'pwd_register_document_taxonomies', 5);
+
+// Botón de descarga directa de un PDF de la Media Library (sin formulario).
+function pwd_download_button($attachment_id, $label = 'PDF', $class = '') {
+  $file = get_attached_file($attachment_id);
+  $size = $file && file_exists($file) ? size_format(filesize($file)) : '';
+
+  return sprintf(
+    '<a href="%s" target="_blank" rel="noopener" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-sm border border-brand-800 px-4 py-2.5 text-sm font-medium text-brand-800 transition-colors hover:bg-brand-800 hover:text-white %s">%s%s<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" class="size-4"><path d="M12 15V3" /><path d="m7 10 5 5 5-5" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></svg></a>',
+    esc_url(wp_get_attachment_url($attachment_id)),
+    esc_attr($class),
+    esc_html($label),
+    $size ? ' &middot; ' . esc_html($size) : ''
+  );
+}
+
+// Esquema de elevación de un tipo de ventana (SVG de líneas, estilo plano arquitectónico).
+// Las líneas en V apuntan al lado de la bisagra; las flechas indican la hoja que se desliza.
+function pwd_window_diagram($type, $class = 'h-24 w-auto') {
+  $frame = '<rect x="4" y="4" width="72" height="92" rx="1" />';
+  $shapes = array(
+    'picture' => $frame . '<rect x="11" y="11" width="58" height="78" />',
+    'casement' => $frame . '<rect x="11" y="11" width="58" height="78" /><path d="M69 11 11 50l58 39" stroke-dasharray="4 3" />',
+    'awning' => $frame . '<rect x="11" y="11" width="58" height="78" /><path d="M11 89 40 11l29 78" stroke-dasharray="4 3" />',
+    'horizontal-sliding' => $frame . '<path d="M40 4v92" /><rect x="10" y="10" width="26" height="80" /><rect x="44" y="10" width="26" height="80" /><path d="M16 50h14m-4-4 4 4-4 4" />',
+    'single-hung' => $frame . '<path d="M4 50h72" /><rect x="10" y="10" width="60" height="36" /><rect x="10" y="54" width="60" height="36" /><path d="M40 84V62m-4 4 4-4 4 4" />',
+    'double-hung' => $frame . '<path d="M4 50h72" /><rect x="10" y="10" width="60" height="36" /><rect x="10" y="54" width="60" height="36" /><path d="M40 84V62m-4 4 4-4 4 4" /><path d="M40 16v22m-4-4 4 4 4-4" />',
+    'arch' => '<path d="M4 96V40a36 36 0 0 1 72 0v56Z" /><path d="M11 89V41a29 29 0 0 1 58 0v48Z" /><path d="M11 41h58" />',
+    'special-shape' => '<path d="M4 96V40L76 8v88Z" /><path d="M11 89V44.5L69 19v70Z" />',
+  );
+
+  if (!isset($shapes[$type])) return '';
+
+  return sprintf(
+    '<svg viewBox="0 0 80 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" class="%s">%s</svg>',
+    esc_attr($class),
+    $shapes[$type]
+  );
+}
+
+// Redirecciones 301 desde las URLs del sitio actual.
+require_once get_theme_file_path('/inc/redirects.php');
+
+// Esquema de elevación de un tipo de puerta (mismo estilo que pwd_window_diagram()).
+// Líneas en V: hoja abatible (el vértice apunta a la bisagra). Flechas: hoja corrediza.
+function pwd_door_diagram($type, $class = 'h-24 w-auto') {
+  $frame = '<rect x="4" y="4" width="112" height="92" rx="1" />';
+  $shapes = array(
+    'patio-sliding' => $frame . '<path d="M60 4v92" /><rect x="10" y="10" width="46" height="80" /><rect x="64" y="10" width="46" height="80" /><path d="M22 50h22m-4-4 4 4-4 4" />',
+    'french-swing' => $frame . '<path d="M60 4v92" /><rect x="10" y="10" width="46" height="80" /><rect x="64" y="10" width="46" height="80" /><path d="M56 10 10 50l46 40M64 10l46 40-46 40" stroke-dasharray="4 3" />',
+    'multi-slide' => $frame . '<path d="M32 4v92M60 4v92M88 4v92" /><rect x="9" y="10" width="19" height="80" /><rect x="36" y="10" width="20" height="80" /><rect x="64" y="10" width="20" height="80" /><rect x="92" y="10" width="19" height="80" /><path d="M40 50h12m-4-4 4 4-4 4M68 50h12m-4-4 4 4-4 4M96 50h11m-4-4 4 4-4 4" />',
+    'multi-fold' => $frame . '<path d="M32 4v92M60 4v92M88 4v92" /><rect x="9" y="10" width="19" height="80" /><rect x="36" y="10" width="20" height="80" /><rect x="64" y="10" width="20" height="80" /><rect x="92" y="10" width="19" height="80" /><path d="M9 90 28 50 9 10M56 90 36 50l20-40M64 90l20-40-20-40M111 90 92 50l19-40" stroke-dasharray="4 3" />',
+  );
+
+  if (!isset($shapes[$type])) return '';
+
+  return sprintf(
+    '<svg viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" class="%s">%s</svg>',
+    esc_attr($class),
+    $shapes[$type]
+  );
+}
+
+// Las cinco series y qué estilos ofrece cada una.
+// Fuente provisional: productos publicados en premiumwindows.com (revisado 2026-09-28;
+// "Infinite Series" = Elegance). PENDIENTE: confirmar con la matriz de producto oficial del cliente.
+function pwd_series_data() {
+  return array(
+    'zenith' => array('name' => 'Zenith', 'tagline' => 'Versatility Redefined', 'material' => 'Performance Vinyl', 'image' => '2026/09/ZENITH_Series-768x512.jpg'),
+    'timeless' => array('name' => 'Timeless', 'tagline' => 'Classic Performance', 'material' => 'Vinyl', 'image' => '2026/09/Timeless_Series-768x512.jpg'),
+    'serene' => array('name' => 'Serene', 'tagline' => 'Modern Comfort', 'material' => 'Vinyl', 'image' => '2026/09/Serene_Series-768x512.jpg'),
+    'elegance' => array('name' => 'Elegance', 'tagline' => 'Refined Design', 'material' => 'Vinyl', 'image' => '2026/09/Elegance_Series.jpg'),
+    'aluminum' => array('name' => 'Aluminum', 'tagline' => 'Strength in Form', 'material' => 'Aluminum', 'image' => '2026/09/Aluminum_Series-768x512.jpg'),
+  );
+}
+
+// 'series': slug de serie => foto del producto (uploads). La ficha de cada producto vive en {href}{serie}/.
+function pwd_product_matrix() {
+  $u = '2026/09/';
+  return array(
+    'windows' => array(
+      array('name' => 'Picture', 'href' => '/windows/picture-windows/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0000_ZE_UNIT-PW.jpg',
+        'timeless' => $u . 'PRM_Web-Timeless-Thumbnail_0005_TI_UNIT-PW.jpg',
+        'serene' => $u . 'SereneW-Picture-Front.jpg',
+        'elegance' => $u . 'PRM_Web-Elegance-Thumbnail_0001_EL_UNIT-PW.jpg',
+        'aluminum' => $u . 'Picture-Window-Aluminum-Series-1.jpg',
+      )),
+      array('name' => 'Casement & Awning', 'href' => '/windows/casement-awning-windows/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0008_ZE_UNIT-CM.jpg',
+        'serene' => $u . 'Thumb-Windows-Casement-Awning-Serene.jpg',
+        'aluminum' => $u . 'Casement-Window-Aluminum-Series-e1590607502165.jpg',
+      )),
+      array('name' => 'Horizontal Sliding', 'href' => '/windows/horizontal-sliding-windows/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0006_ZE_UNIT-XO.jpg',
+        'timeless' => $u . 'PRM_Web-Timeless-Thumbnail_0006_TI_UNIT-XO.jpg',
+        'serene' => $u . 'SereneW-Horizontal_sliding-Front.jpg',
+        'elegance' => $u . 'PRM_Web-Elegance-Thumbnail_0002_EL_UNIT-XO.jpg',
+        'aluminum' => $u . 'Horizontal-Sliding-Aluminum-Series.jpg',
+      )),
+      array('name' => 'Single Hung', 'href' => '/windows/single-hung-windows/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0002_ZE_UNIT-SH.jpg',
+        'timeless' => $u . 'PRM_Web-Timeless-Thumbnail_0004_TI_UNIT-SH.jpg',
+        'serene' => $u . 'SereneW-Single_Hung-Front.jpg',
+        'elegance' => $u . 'PRM_Web-Elegance-Thumbnail_0000_EL_UNIT-SH.jpg',
+        'aluminum' => $u . 'Single-Hung-Window-Aluminum-Series.jpg',
+      )),
+      array('name' => 'Double Hung', 'href' => '/windows/double-hung-windows/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0004_ZE_UNIT-DH.jpg',
+        'serene' => $u . 'SereneW-Double_Hung-Front.jpg',
+      )),
+      array('name' => 'Arch & Special Shape', 'href' => '/windows/arch-special-shape-windows/', 'product' => 'Arch', 'series' => array(
+        'timeless' => $u . 'PRM_Web-Timeless-Thumbnail_0007_TI_UNIT-ARC.jpg',
+        'elegance' => $u . 'PRM_Web-Elegance-Thumbnail_0003_EL_UNIT-ARC.jpg',
+      )),
+    ),
+    'doors' => array(
+      array('name' => 'Patio Sliding', 'href' => '/doors/patio-sliding-doors/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0012_ZE_UNIT-SL.jpg',
+        'timeless' => $u . 'TI_Unit-SL.jpg',
+        'serene' => $u . 'Thumb-Doors-Patio-Sliding-Serene.jpg',
+        'elegance' => $u . 'Thumb-Doors-Patio-Sliding-Infinite.jpg',
+        'aluminum' => $u . 'Aluminum-Series-Patio-Sliding-Doors.jpg',
+      )),
+      array('name' => 'French Swing', 'href' => '/doors/french-swing-doors/', 'series' => array(
+        'zenith' => $u . 'PRM_Web-Zenith-Thumbnail_0010_ZE_UNIT-SW.jpg',
+        'serene' => $u . 'Thumb-Doors-French-Swing-Serene.jpg',
+        'elegance' => $u . 'Thumb-Doors-French-Swing-Infinite.jpg',
+        'aluminum' => $u . 'Aluminum-Series-French-Swing-Door.jpg',
+      )),
+      array('name' => 'Multiple Sliding', 'href' => '/doors/multiple-sliding-doors/', 'series' => array(
+        'serene' => $u . 'Operation-Doors-Multiple-Sliding.jpg',
+        'aluminum' => $u . 'Aluminum-Series-Multiple-Sliding-Door.jpg',
+      )),
+      array('name' => 'Multiple Folding', 'href' => '/doors/multiple-folding-doors/', 'series' => array(
+        'serene' => $u . 'Thumb-Doors-Multiple-Folding-Serene.jpg',
+        'aluminum' => $u . 'Aluminum-Series-Multiple-Folding-Door.jpg',
+      )),
+    ),
+  );
 }

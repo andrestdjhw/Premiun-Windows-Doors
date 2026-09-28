@@ -3,10 +3,10 @@
 // Los elementos sin 'href' todavía no tienen página propia.
 $evidence = array(
   array('icon' => 'factory', 'title' => 'Manufacturing capability', 'href' => '/capabilities/'),
-  array('icon' => 'layers', 'title' => 'Compatible series', 'href' => '/compare-series/'),
+  array('icon' => 'layers', 'title' => 'Compatible series', 'href' => '/series/#compare'),
   array('icon' => 'file-text', 'title' => 'Documentation', 'href' => '/resources/'),
   array('icon' => 'badge-check', 'title' => 'Project-support process', 'href' => '/professionals/project-support/'),
-  array('icon' => 'file-text', 'title' => 'Drawings', 'href' => '/resources/technical-drawings/'),
+  array('icon' => 'file-text', 'title' => 'Drawings', 'href' => '/resources/technical/?type=detail-drawing'),
   array('icon' => 'award', 'title' => 'Certifications', 'href' => '/resources/certifications/'),
   array('icon' => 'shield-check', 'title' => 'Warranty', 'href' => '/warranty/'),
   array('icon' => 'file-badge', 'title' => 'Packaging & delivery', 'href' => ''),

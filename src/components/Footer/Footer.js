@@ -103,6 +103,16 @@ export default function Footer({ config }) {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://828marketingsolutions.com"
+                target="_blank"
+                rel="noopener"
+                className="transition-colors hover:text-white"
+              >
+                Site by 828 Marketing Solutions
+              </a>
+            </li>
           </ul>
         </div>
       </div>

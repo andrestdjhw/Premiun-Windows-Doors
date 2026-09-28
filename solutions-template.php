@@ -26,7 +26,7 @@ get_header(); ?>
     'image' => array('1024' => '2026/09/ZENITH_Series.jpg'),
     'buttons' => array(
       array('Request a Quote', home_url('/request-a-quote/'), 'light'),
-      array('Compare Series', home_url('/compare-series/'), 'outline-light'),
+      array('Compare Series', home_url('/series/#compare'), 'outline-light'),
     ),
   ));
 
