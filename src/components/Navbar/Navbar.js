@@ -3,7 +3,6 @@ import Logo from "./Logo"
 import MegaMenu from "./MegaMenu"
 import MobileMenu from "./MobileMenu"
 import SearchPanel from "./SearchPanel"
-import LanguageSwitcher from "./LanguageSwitcher"
 import { getNavData } from "./navData"
 import { ArrowRight, ChevronDown, Close, Menu, Search } from "./icons"
 
@@ -136,10 +135,6 @@ export default function Navbar({ config }) {
             >
               {searchOpen ? <Close className="size-6" /> : <Search className="size-6" />}
             </button>
-
-            <div className="hidden xl:block">
-              <LanguageSwitcher languages={config.languages} current={config.currentLang} />
-            </div>
 
             <a
               href={config.quoteUrl}

@@ -24,7 +24,7 @@ get_header(); ?>
       array('Five Series. Different Priorities.', 'light'),
       array('One Manufacturing Standard.', 'accent'),
     ),
-    'text' => 'Premium’s product portfolio gives homeowners and professionals multiple paths to the right solution — from performance vinyl and high-value everyday systems to acoustic comfort, traditional proportions, and aluminum architecture.',
+    'text' => 'Premium’s product portfolio gives homeowners and professionals multiple paths to the right solution, from performance vinyl and high-value everyday systems to acoustic comfort, traditional proportions, and aluminum architecture.',
     'image' => array('1024' => '2026/09/ZENITH_Series.jpg'),
     'buttons' => array(
       array('Compare the Series', '#compare', 'light'),

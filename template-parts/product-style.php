@@ -114,7 +114,7 @@ $resources = array(
       <p class="eyebrow text-brand-100">For professionals</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl"><?php echo esc_html($style['name'] . ' ' . strtolower($noun)); ?> technical data</h2>
       <p class="mt-4 text-lg leading-relaxed text-white/70">
-        Technical drawings, glazing, frame systems, certifications, installation documents, and other product-specific data — available from each product page and Technical Resources.
+        Technical drawings, glazing, frame systems, certifications, installation documents, and other product-specific data, available from each product page and Technical Resources.
       </p>
       <div class="mt-8">
         <?php echo pwd_button('All ' . $style['name'] . ' Documents', home_url($docs()), 'light'); ?>

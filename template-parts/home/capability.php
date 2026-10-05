@@ -8,7 +8,7 @@ $steps = array('Product development', 'Custom configurations', 'Quality control'
       <p class="eyebrow text-brand-100">Manufacturing capability</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">Built in Corona. Built around consistency.</h2>
       <p class="mt-6 text-lg leading-relaxed text-white/70">
-        Premium&rsquo;s manufacturing operation brings product development, custom configurations, quality control, packaging, and support into one connected process&mdash;helping customers move from selection to delivery with greater clarity.
+        Premium&rsquo;s manufacturing operation brings product development, custom configurations, quality control, packaging, and support into one connected process, helping customers move from selection to delivery with greater clarity.
       </p>
       <div class="mt-10">
         <?php echo pwd_button('Explore Manufacturing', home_url('/capabilities/'), 'light'); ?>

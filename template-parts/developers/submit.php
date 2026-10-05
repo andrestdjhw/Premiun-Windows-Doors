@@ -29,7 +29,7 @@ $field = function ($name, $text, $type = 'text', $required = true, $autocomplete
 $select = function ($name, $text) use ($input, $label, $select_options) {
   printf('<div><label for="pi-%1$s" class="%3$s">%2$s <span class="text-brand-600">*</span></label><select id="pi-%1$s" name="%1$s" required class="%4$s"><option value="">Select…</option>', esc_attr($name), esc_html($text), $label, $input);
   foreach ($select_options[$name] as $option) {
-    printf('<option>%s</option>', esc_html($option));
+    printf('<option value="%s">%s</option>', esc_attr($option), esc_html($option));
   }
   echo '</select></div>';
 };
@@ -52,7 +52,7 @@ $select = function ($name, $text) use ($input, $label, $select_options) {
       </ul>
     </div>
 
-    <form <?php echo pwd_emailjs_attrs('PWD_EMAILJS_PROJECT_TEMPLATE_ID', 'Project submission — Developers & GCs'); ?> <?php echo pwd_reveal(1); ?> class="rounded-sm border border-slate-200 bg-slate-50 p-6 sm:p-10 lg:col-span-8">
+    <form <?php echo pwd_emailjs_attrs('PWD_EMAILJS_PROJECT_TEMPLATE_ID', 'Project submission (Developers & GCs)'); ?> <?php echo pwd_reveal(1); ?> class="rounded-sm border border-slate-200 bg-slate-50 p-6 sm:p-10 lg:col-span-8">
       <fieldset>
         <legend class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500">About you</legend>
         <div class="mt-5 grid gap-5 sm:grid-cols-2">

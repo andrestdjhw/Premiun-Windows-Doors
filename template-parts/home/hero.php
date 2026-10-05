@@ -41,13 +41,13 @@ $trust = array(
   <div class="site-container py-20">
     <div class="max-w-2xl">
       <p <?php echo pwd_reveal(); ?> class="font-mono text-xs uppercase tracking-[0.35em] text-slate-700">Engineered for a brighter tomorrow</p>
-      <h1 <?php echo pwd_reveal(1); ?> class="mt-7 text-[40px] leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-[64px]">
+      <h1 <?php echo pwd_reveal(1); ?> data-i18n="home.hero.title" class="mt-7 text-[40px] leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-[64px]">
         <span class="font-light">High-Performance</span>
         <span class="block font-bold text-brand-500">Windows &amp; Doors.</span>
         <span class="block font-medium">Manufactured in California.</span>
       </h1>
       <p <?php echo pwd_reveal(2); ?> class="mt-7 max-w-xl text-lg leading-relaxed text-slate-800">
-        Custom solutions for residential, commercial and multifamily projects &mdash; backed by over two decades of manufacturing expertise.
+        Custom solutions for residential, commercial and multifamily projects, backed by over two decades of manufacturing expertise.
       </p>
       <div <?php echo pwd_reveal(3); ?> class="mt-9 flex flex-col gap-4 sm:flex-row">
         <?php echo pwd_button('Explore Products', home_url('/products/')); ?>

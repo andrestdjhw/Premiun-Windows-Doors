@@ -18,7 +18,7 @@ get_template_part('template-parts/project-type', null, array(
   'hero' => array(
     'eyebrow' => 'Solutions · New Construction',
     'title' => array(array('Specified from', 'light'), array('the Start of the Build.', 'accent')),
-    'text' => 'Made-to-order windows and doors for homes and buildings built from the ground up — with documentation and support that fit the construction process.',
+    'text' => 'Made-to-order windows and doors for homes and buildings built from the ground up, with documentation and support that fit the construction process.',
     'image' => array('1024' => '2026/09/Serene_Series.jpg'),
     'buttons' => array(
       array('Request a Quote', home_url('/request-a-quote/'), 'light'),

@@ -16,7 +16,7 @@ $resources = array(
       <p class="eyebrow text-brand-100">Technical access</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">Find it before the quote or submittal stage.</h2>
       <p class="mt-4 text-lg leading-relaxed text-white/70">
-        Drawings, certifications, frame details, glazing, finishes, hardware, and project contacts&mdash;easy to find when the specification is still being written.
+        Drawings, certifications, frame details, glazing, finishes, hardware, and project contacts, easy to find when the specification is still being written.
       </p>
       <div class="mt-8">
         <?php echo pwd_button('Technical Resources', home_url('/resources/technical/'), 'light'); ?>

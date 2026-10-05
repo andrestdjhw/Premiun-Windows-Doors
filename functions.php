@@ -28,11 +28,6 @@ function pwd_navbar_config() {
     'logoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : '',
     'siteName' => html_entity_decode(get_bloginfo('name'), ENT_QUOTES),
     'quoteUrl' => home_url('/request-a-quote/'),
-    'currentLang' => 'en',
-    'languages' => array(
-      array('code' => 'en', 'label' => 'English', 'href' => home_url('/')),
-      array('code' => 'es', 'label' => 'Español', 'href' => home_url('/es/')),
-    ),
   );
 }
 
@@ -43,9 +38,22 @@ function pwd_contact_info() {
     'email' => 'info@premiumwindows.com',
     'phone' => '800 608 0252',
     'phoneHref' => 'tel:+18006080252',
-    'address' => '15 Longitud Way, Corona, CA 92881',
+    'fax' => '562 633 9696',
+    'hours' => 'Monday to Friday, 8 AM to 5 PM',
+    'address' => '15 Longitude Way, Corona, CA 92881',
+    'mapUrl' => 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('Premium Windows & Doors, 15 Longitude Way, Corona, CA 92881'),
+    // Herramienta de cotización y pedidos de los dealers (externa). /iquote/ redirige aquí.
+    'iquoteUrl' => 'https://iquoteweb.premiumwindowsinc.com/web.web',
   );
 }
+
+// /iquote/ lleva a la app externa de iQuote. 302 para que el destino se pueda cambiar sin caché permanente.
+add_action('template_redirect', function () {
+  $path = trailingslashit(wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '/');
+  if (strtolower($path) !== '/iquote/') return;
+  wp_redirect(pwd_contact_info()['iquoteUrl'], 302, 'Premium Windows & Doors');
+  exit;
+}, 0);
 
 // Crea las páginas legales si no existen. Su contenido vive en page-{slug}.php.
 function pwd_ensure_legal_pages() {
@@ -87,6 +95,12 @@ add_action('init', 'pwd_ensure_legal_pages');
 // URL de un archivo de la Media Library (ej. '2026/09/ZENITH_Series.jpg').
 function pwd_upload_url($file) {
   return wp_upload_dir()['baseurl'] . '/' . ltrim($file, '/');
+}
+
+// URL de un tamaño intermedio generado por WordPress (ej. '1024x683') si existe; si no, el original.
+function pwd_upload_sized($file, $size) {
+  $sized = preg_replace('/\.(\w+)$/', '-' . $size . '.$1', ltrim($file, '/'));
+  return file_exists(wp_upload_dir()['basedir'] . '/' . $sized) ? pwd_upload_url($sized) : pwd_upload_url($file);
 }
 
 // Iconos SVG en línea para las plantillas PHP (mismos trazos que src/components/Navbar/icons.js).
@@ -173,7 +187,36 @@ function pwd_ensure_template_pages() {
     'resources/technical' => array('title' => 'Technical Resources', 'template' => 'technical-resources-template.php'),
     'resources/brochures' => array('title' => 'Brochures & Literature', 'template' => 'brochure-template.php'),
     'faqs' => array('title' => 'FAQs', 'template' => 'faqs-template.php'),
+    'request-a-quote' => array('title' => 'Request a Quote', 'template' => 'quote-template.php'),
+    'contact' => array('title' => 'Contact', 'template' => 'contact-template.php'),
+    'warranty' => array('title' => 'Warranty', 'template' => 'warranty-template.php'),
+    'service-request' => array('title' => 'Service Request', 'template' => 'service-request-template.php'),
+    'products' => array('title' => 'Products', 'template' => 'products-template.php'),
+    'projects' => array('title' => 'Projects & Inspiration', 'template' => 'projects-template.php'),
+    'blog' => array('title' => 'Blog & News', 'template' => ''),
+    'capabilities' => array('title' => 'Capabilities', 'template' => 'capabilities-template.php'),
+    'capabilities/finishes-colors' => array('title' => 'Finishes & Colors', 'template' => 'finishes-colors-template.php'),
+    'capabilities/glass-options' => array('title' => 'Glass Options', 'template' => 'glass-options-template.php'),
+    'capabilities/hardware' => array('title' => 'Hardware & Accessories', 'template' => 'hardware-template.php'),
+    'capabilities/energy-efficiency' => array('title' => 'Energy Efficiency', 'template' => 'energy-efficiency-template.php'),
+    'capabilities/certifications' => array('title' => 'Testing & Certifications', 'template' => 'testing-certifications-template.php'),
+    'capabilities/sound-control' => array('title' => 'Sound Control', 'template' => 'sound-control-template.php'),
+    'capabilities/coastal-high-wind' => array('title' => 'Coastal & High-Wind', 'template' => 'coastal-high-wind-template.php'),
+    'professionals' => array('title' => 'Professionals', 'template' => 'professionals-template.php'),
+    'professionals/request-support' => array('title' => 'Request Support', 'template' => 'request-support-template.php'),
+    'professionals/project-support' => array('title' => 'Project Support', 'template' => 'project-support-template.php'),
+    'professionals/specifications' => array('title' => 'Specifications', 'template' => 'specifications-template.php'),
+    'professionals/finish-glass-options' => array('title' => 'Finish & Glass Options', 'template' => 'finish-glass-options-template.php'),
+    'professionals/dealer-program' => array('title' => 'Dealer Program', 'template' => 'dealer-program-template.php'),
+    'professionals/become-a-dealer' => array('title' => 'Become a Dealer', 'template' => 'become-a-dealer-template.php'),
+    'professionals/marketing-resources' => array('title' => 'Marketing Resources', 'template' => 'marketing-resources-template.php'),
+    'resources/certifications' => array('title' => 'Certifications', 'template' => 'certifications-template.php'),
+    'resources/product-catalog' => array('title' => 'Product Catalog', 'template' => 'product-catalog-template.php'),
   );
+  // Fichas de producto (inc/product-data.php): todas usan la misma plantilla.
+  foreach (pwd_product_data() as $path => $product) {
+    $pages[$path] = array('title' => $product['name'], 'template' => 'product-template.php');
+  }
   $done = (array) get_option('pwd_template_pages', array());
 
   foreach ($pages as $path => $page_data) {
@@ -184,13 +227,18 @@ function pwd_ensure_template_pages() {
 
     // No pisa una plantilla elegida a mano en una página existente.
     $current = get_post_meta($page_id, '_wp_page_template', true);
-    if (!$current || $current === 'default') {
+    if ($page_data['template'] && (!$current || $current === 'default')) {
       update_post_meta($page_id, '_wp_page_template', $page_data['template']);
     }
 
     if ($path === 'home' && get_option('show_on_front') !== 'page') {
       update_option('show_on_front', 'page');
       update_option('page_on_front', $page_id);
+    }
+
+    // /blog/ es la página de entradas (home.php).
+    if ($path === 'blog' && !get_option('page_for_posts')) {
+      update_option('page_for_posts', $page_id);
     }
 
     $done[] = $path;
@@ -220,6 +268,11 @@ function pwd_ensure_page($path, $title = '') {
 }
 
 add_action('init', 'pwd_ensure_template_pages');
+
+// Separador de los títulos que arma WordPress (404, búsqueda, páginas legales): igual que pwd_seo(), sin guiones.
+add_filter('document_title_separator', function () {
+  return '|';
+});
 
 // Título y meta description de una plantilla (el tema no usa plugin de SEO).
 // Se llama antes de get_header().
@@ -277,6 +330,8 @@ function pwd_reveal($index = 0, $step = 100) {
 //   define('PWD_EMAILJS_SERVICE_ID', '...');
 //   define('PWD_EMAILJS_PROJECT_TEMPLATE_ID', '...');   // formulario de proyecto (Developers & GCs)
 //   define('PWD_EMAILJS_NEWSLETTER_TEMPLATE_ID', '...'); // suscripción opcional (Brochures)
+//   define('PWD_EMAILJS_GENERAL_TEMPLATE_ID', '...');    // resto de formularios (quote, contacto, servicio, soporte,
+//                                                         // dealers). Variables: {{form_name}}, {{summary}}, {{email}}, {{name}}, {{page_url}}
 // Sin credenciales, el formulario se muestra pero avisa que no está configurado.
 function pwd_emailjs_attrs($template_constant, $form_name, $success_message = '') {
   $attrs = array(
@@ -284,7 +339,8 @@ function pwd_emailjs_attrs($template_constant, $form_name, $success_message = ''
     'data-success-message' => $success_message,
     'data-public-key' => defined('PWD_EMAILJS_PUBLIC_KEY') ? PWD_EMAILJS_PUBLIC_KEY : '',
     'data-service-id' => defined('PWD_EMAILJS_SERVICE_ID') ? PWD_EMAILJS_SERVICE_ID : '',
-    'data-template-id' => defined($template_constant) ? constant($template_constant) : '',
+    // Sin plantilla propia, usa la general (PWD_EMAILJS_GENERAL_TEMPLATE_ID).
+    'data-template-id' => defined($template_constant) ? constant($template_constant) : (defined('PWD_EMAILJS_GENERAL_TEMPLATE_ID') ? PWD_EMAILJS_GENERAL_TEMPLATE_ID : ''),
     'data-fallback-email' => pwd_contact_info()['email'],
   );
 
@@ -413,6 +469,9 @@ function pwd_window_diagram($type, $class = 'h-24 w-auto') {
 
 // Redirecciones 301 desde las URLs del sitio actual.
 require_once get_theme_file_path('/inc/redirects.php');
+
+// Fichas de producto por estilo + serie, sus datos y el importador de PDFs.
+require_once get_theme_file_path('/inc/products.php');
 
 // Esquema de elevación de un tipo de puerta (mismo estilo que pwd_window_diagram()).
 // Líneas en V: hoja abatible (el vértice apunta a la bisagra). Flechas: hoja corrediza.

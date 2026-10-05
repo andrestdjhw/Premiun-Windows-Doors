@@ -15,7 +15,7 @@ $steps = array(
         Specification decisions happen before the order.
       </p>
       <p class="mt-6 text-lg leading-relaxed text-slate-600">
-        Find what you need to understand product fit, compare series, review technical details, and locate the documentation required for your project&mdash;in less time.
+        Find what you need to understand product fit, compare series, review technical details, and locate the documentation required for your project, in less time.
       </p>
     </div>
 

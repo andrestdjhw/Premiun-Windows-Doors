@@ -25,7 +25,7 @@ get_template_part('template-parts/project-type', null, array(
       array('Explore Windows', home_url('/windows/'), 'outline-light'),
     ),
   ),
-  'intro' => 'A remodel often changes the opening itself — a wider view, a new door to the patio, a different style. Made-to-order products let the opening be designed around the space.',
+  'intro' => 'A remodel often changes the opening itself: a wider view, a new door to the patio or a different style. Made-to-order products let the opening be designed around the space.',
   'factors' => array('Layout changes', 'Indoor-outdoor openings', 'Arch & special shapes', 'Finishes', 'Hardware', 'Glass'),
   'support_title' => 'Designed around the new space',
   'support' => array(

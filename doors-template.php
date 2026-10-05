@@ -34,7 +34,7 @@ get_header(); ?>
   get_template_part('template-parts/doors/styles');
   get_template_part('template-parts/doors/why');
   get_template_part('template-parts/series-cards', null, array(
-    'text' => 'Choose the series and configuration that fit the project — not only the look. Compare material, frame design, glazing and performance across Premium’s five series.',
+    'text' => 'Choose the series and configuration that fit the project, not only the look. Compare material, frame design, glazing and performance across Premium’s five series.',
   ));
   get_template_part('template-parts/doors/projects');
 

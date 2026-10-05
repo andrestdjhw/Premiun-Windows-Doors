@@ -9,6 +9,11 @@ function collectParams(form) {
     if (key === "website") return // honeypot
     params[key] = params[key] ? `${params[key]}, ${value}` : value
   })
+  // Resumen legible para la plantilla general de EmailJS ({{summary}}): una línea "Etiqueta: valor" por campo.
+  params.summary = Object.entries(params)
+    .filter(([key, value]) => key !== "consent" && value !== "")
+    .map(([key, value]) => `${form.querySelector(`[name="${key}"]`)?.dataset.label || key}: ${value}`)
+    .join("\n")
   params.form_name = form.dataset.emailjsForm
   params.page_url = window.location.href
   return params

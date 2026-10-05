@@ -4,6 +4,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>document.documentElement.classList.add('js')</script>
+    <?php // Si el visitante eligió español, oculta la página hasta traducirla (src/scripts/i18n.js); máximo 2 s. ?>
+    <script>try{var q=new URLSearchParams(location.search).get('lang');if(q==='es'||(q!=='en'&&localStorage.getItem('pwd-lang')==='es')){var h=document.documentElement;h.lang='es';h.classList.add('i18n-pending');setTimeout(function(){h.classList.remove('i18n-pending')},2000)}}catch(e){}</script>
     <?php wp_head(); ?>
   </head>
   <body <?php body_class('font-sans text-slate-900 antialiased'); ?>>

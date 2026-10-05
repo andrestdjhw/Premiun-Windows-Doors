@@ -44,13 +44,13 @@ function pwd_legacy_redirects() {
     '/compare-series/' => '/series/#compare',
 
     // Recursos y páginas.
-    '/resources/certificates/' => '/resources/technical/?type=certification',
-    '/resources/glass/' => '/capabilities/customization/',
+    '/resources/certificates/' => '/resources/certifications/',
+    '/resources/glass/' => '/capabilities/glass-options/',
     '/resources/service-request/' => '/service-request/',
     '/resources/careers/' => '/about/',
     '/legal/' => '/privacy-policy/',
     '/inspiration/' => '/projects/',
-    '/become-a-vendor/' => '/professionals/dealers-distributors/',
+    '/become-a-vendor/' => '/professionals/become-a-dealer/',
 
     // Landing pages de campañas (confirmar si hay anuncios activos apuntando a ellas).
     '/landing/' => '/',
@@ -92,7 +92,8 @@ function pwd_legacy_redirect() {
   if (!is_404()) return;
 
   $path = strtolower(trailingslashit(wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '/'));
-  $target = pwd_legacy_redirects()[$path] ?? null;
+  // Otras partes del tema agregan rutas con el filtro (ej. las fichas de producto en inc/products.php).
+  $target = apply_filters('pwd_legacy_redirects', pwd_legacy_redirects())[$path] ?? null;
 
   if (!$target) {
     $prefixes = pwd_legacy_redirect_prefixes();

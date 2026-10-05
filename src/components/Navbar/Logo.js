@@ -4,7 +4,7 @@ import React from "react"
 // `inverted` lo adapta a fondos oscuros (footer).
 export default function Logo({ href, logoUrl, siteName = "Premium Windows & Doors", compact = false, inverted = false }) {
   return (
-    <a href={href} className="flex shrink-0 items-center gap-3" aria-label={`${siteName} — Home`}>
+    <a href={href} translate="no" className="flex shrink-0 items-center gap-3" aria-label={`${siteName} home`}>
       {logoUrl ? (
         <img
           src={logoUrl}

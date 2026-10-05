@@ -36,7 +36,7 @@ $requirements = array(
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Products</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl">Explore products</h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-600">Choose the product first&mdash;or start with the performance, material, and design requirements of your project.</p>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">Choose the product first, or start with the performance, material, and design requirements of your project.</p>
     </div>
 
     <div class="mt-12 grid gap-6 lg:grid-cols-2">

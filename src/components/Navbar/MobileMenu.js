@@ -121,21 +121,6 @@ export default function MobileMenu({ open, onClose, items, config }) {
         </div>
 
         <div className="shrink-0 border-t border-slate-200 p-5">
-          {config.languages?.length > 1 && (
-            <div className="mb-4 flex gap-2">
-              {config.languages.map(lang => (
-                <a
-                  key={lang.code}
-                  href={lang.href}
-                  className={`rounded-sm px-3 py-1.5 text-sm font-medium uppercase ${
-                    lang.code === config.currentLang ? "bg-brand-50 text-brand-700" : "text-slate-600 hover:bg-slate-100"
-                  }`}
-                >
-                  {lang.code}
-                </a>
-              ))}
-            </div>
-          )}
           <a
             href={config.quoteUrl}
             className="btn-sweep group flex w-full justify-center rounded-sm bg-brand-800 px-6 py-4 font-medium text-white"

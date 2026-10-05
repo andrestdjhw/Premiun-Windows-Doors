@@ -8,7 +8,7 @@ $factors = array('Sightlines', 'Circulation', 'Indoor-outdoor connection', 'Hard
       <p class="eyebrow text-brand-100">Why doors matter</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">A door is not only a passage.</h2>
       <p class="mt-4 text-lg leading-relaxed text-white/70">
-        It affects sightlines, circulation, indoor-outdoor connection, hardware, glazing, security, installation conditions, and the way the entire opening performs. Choose the series and configuration that fit the project&mdash;not only the look.
+        It affects sightlines, circulation, indoor-outdoor connection, hardware, glazing, security, installation conditions, and the way the entire opening performs. Choose the series and configuration that fit the project, not only the look.
       </p>
     </div>
 

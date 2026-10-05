@@ -62,7 +62,7 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         eyebrow: "Solutions",
         titleLight: "Solutions for",
         titleBold: "every kind of project.",
-        text: "From custom homes to multifamily and commercial buildings — the right product and the right support for each project.",
+        text: "From custom homes to multifamily and commercial buildings: the right product and the right support for each project.",
         cta: { label: "Explore Solutions", href: u("/solutions/") },
       },
       groups: [
@@ -92,7 +92,7 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         eyebrow: "For Professionals",
         titleLight: "Built to",
         titleBold: "Bring Your Vision to Life.",
-        text: "Tools, documentation and support for architects, developers, contractors and dealers — from concept to completion.",
+        text: "Tools, documentation and support for architects, developers, contractors and dealers, from concept to completion.",
         cta: { label: "Work With Premium", href: u("/professionals/") },
       },
       audiences: [

@@ -22,7 +22,7 @@ get_header(); ?>
       array('Solutions for', 'light'),
       array('Every Kind of Project.', 'accent'),
     ),
-    'text' => 'From custom homes to multifamily and commercial buildings — the right product and the right support for each project.',
+    'text' => 'From custom homes to multifamily and commercial buildings: the right product and the right support for each project.',
     'image' => array('1024' => '2026/09/ZENITH_Series.jpg'),
     'buttons' => array(
       array('Request a Quote', home_url('/request-a-quote/'), 'light'),

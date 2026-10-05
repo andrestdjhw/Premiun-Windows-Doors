@@ -13,12 +13,14 @@ $legal = wp_parse_args($args, array('title' => get_the_title(), 'updated' => '',
         <p class="mt-4 text-sm text-slate-500">Last updated: <?php echo esc_html($legal['updated']); ?></p>
       <?php endif; ?>
       <?php if ($legal['intro']) : ?>
-        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600"><?php echo esc_html($legal['intro']); ?></p>
+        <p data-i18n-skip class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600"><?php echo esc_html($legal['intro']); ?></p>
       <?php endif; ?>
+      <?php // El texto legal no se traduce automáticamente; en español solo aparece este aviso (src/i18n/es.js → keys). ?>
+      <p data-i18n="legal.english-only" class="mt-6 max-w-3xl rounded-sm border-l-4 border-brand-600 bg-brand-50 p-4 text-[15px] text-slate-700 empty:hidden"></p>
     </div>
   </header>
 
-  <div class="mx-auto grid max-w-[1536px] gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 xl:px-10 xl:py-16 2xl:px-12">
+  <div data-i18n-skip class="mx-auto grid max-w-[1536px] gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 xl:px-10 xl:py-16 2xl:px-12">
     <aside class="lg:col-span-4 xl:col-span-3">
       <details class="group rounded-sm border border-slate-200 lg:sticky lg:top-40 lg:border-0" open>
         <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-900 lg:pointer-events-none lg:px-0 lg:pt-0 [&::-webkit-details-marker]:hidden">

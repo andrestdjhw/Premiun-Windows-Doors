@@ -7,7 +7,8 @@
 //   image    array ancho => archivo de uploads (el primero es el src por defecto)
 //   buttons  array opcional de array(label, href, variante de pwd_button)
 //   breadcrumbs array opcional de array(label, ruta); el último es la página actual
-$hero = wp_parse_args($args, array('eyebrow' => '', 'title' => array(), 'text' => '', 'image' => array(), 'buttons' => array(), 'breadcrumbs' => array()));
+//   title_key   clave opcional de src/i18n/es.js (keys) cuando el título traducido no sale línea por línea
+$hero = wp_parse_args($args, array('title_key' => '', 'eyebrow' => '', 'title' => array(), 'text' => '', 'image' => array(), 'buttons' => array(), 'breadcrumbs' => array()));
 $line_styles = array(
   'light' => 'font-light',
   'accent' => 'font-bold text-brand-500',
@@ -55,7 +56,7 @@ $line_styles = array(
         ?>
       <?php endif; ?>
       <p <?php echo pwd_reveal(); ?> class="font-mono text-xs uppercase tracking-[0.35em] text-brand-100"><?php echo esc_html($hero['eyebrow']); ?></p>
-      <h1 <?php echo pwd_reveal(1); ?> class="mt-7 text-[40px] leading-[1.05] tracking-tight text-white sm:text-5xl xl:text-[64px]">
+      <h1 <?php echo pwd_reveal(1); ?> <?php echo $hero['title_key'] ? 'data-i18n="' . esc_attr($hero['title_key']) . '"' : ''; ?> class="mt-7 text-[40px] leading-[1.05] tracking-tight text-white sm:text-5xl xl:text-[64px]">
         <?php foreach ($hero['title'] as $line) : ?>
           <span class="block <?php echo esc_attr($line_styles[$line[1]]); ?>"><?php echo esc_html($line[0]); ?></span>
         <?php endforeach; ?>

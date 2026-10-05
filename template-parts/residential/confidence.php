@@ -15,7 +15,7 @@ $resources = array(
       <p class="eyebrow text-brand-600">Confidence</p>
       <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl">Understand it before you buy it.</h2>
       <p class="mt-4 text-lg leading-relaxed text-slate-600">
-        Performance, frame options, glazing, technical documents, warranty information, and service resources&mdash;easy to find and easy to understand before purchase.
+        Performance, frame options, glazing, technical documents, warranty information, and service resources, easy to find and easy to understand before purchase.
       </p>
     </div>
 

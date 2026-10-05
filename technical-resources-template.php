@@ -24,7 +24,7 @@ get_header(); ?>
       array('Find the Product. Find the Document.', 'light'),
       array('Keep the Project Moving.', 'accent'),
     ),
-    'text' => 'Search technical information by series, product type, style, frame condition, or document type. Every document downloads directly — no form required.',
+    'text' => 'Search technical information by series, product type, style, frame condition, or document type. Every document downloads directly, no form required.',
     'image' => array(
       '1536' => '2026/09/ArchitectsSpecifiers-1536x1024.jpg',
       '2048' => '2026/09/ArchitectsSpecifiers-2048x1365.jpg',

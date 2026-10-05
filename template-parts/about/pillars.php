@@ -5,7 +5,7 @@ $pillars = array(
   array(
     'icon' => 'factory',
     'title' => 'Manufacturing',
-    'text' => 'The company’s identity begins with making the product—not presenting itself as a generic installation contractor.',
+    'text' => 'The company’s identity begins with making the product, not presenting itself as a generic installation contractor.',
   ),
   array(
     'icon' => 'layers',

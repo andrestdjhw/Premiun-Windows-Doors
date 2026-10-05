@@ -25,7 +25,7 @@ get_header(); ?>
       array('Product Literature,', 'light'),
       array('Ready When You Need It.', 'accent'),
     ),
-    'text' => 'Download current brochures and series literature directly — no form required.',
+    'text' => 'Download current brochures and series literature directly, no form required.',
     'image' => array('1024' => '2026/09/Timeless_Series.jpg'),
     'buttons' => array(
       array('Browse Brochures', '#brochures', 'light'),

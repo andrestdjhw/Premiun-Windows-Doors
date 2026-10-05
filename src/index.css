@@ -167,3 +167,8 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Español elegido: la página espera a estar traducida (src/scripts/i18n.js quita la clase; header.php la quita a los 2 s). */
+.i18n-pending body {
+  opacity: 0;
+}
