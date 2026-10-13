@@ -6,6 +6,7 @@
 
   --color-brand-50: #eef4fb;
   --color-brand-100: #dbe7f6;
+  --color-brand-300: #7fb3ec;
   --color-brand-500: #1f74d1;
   --color-brand-600: #1565c0;
   --color-brand-700: #0f4f99;
@@ -17,12 +18,13 @@
   --animate-btn-pop: btn-pop 300ms ease-in-out;
   --animate-slide-progress: slide-progress var(--slide-interval, 6000ms) linear forwards;
 
+  /* Anima `scale` (no `transform`) porque las utilidades scale-y-* de Tailwind v4 usan esa propiedad. */
   @keyframes slide-progress {
     from {
-      transform: scaleY(0);
+      scale: 1 0;
     }
     to {
-      transform: scaleY(1);
+      scale: 1 1;
     }
   }
 
@@ -106,6 +108,113 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+/* Iconos de operación (pwd_operation_icon): marco en currentColor, hoja/riel en azul de marca.
+   Dentro de un .group, la hoja se desplaza ligeramente al hacer hover para sugerir la operación. */
+.op-icon .op-accent {
+  fill: var(--op-accent, var(--color-brand-500));
+  transition: translate 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.op-icon .op-frame {
+  transition: fill 150ms ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .group:hover .op-icon .op-accent {
+    translate: var(--op-shift, 0 0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Carrusel 3D (src/scripts/carousel3d.js). Sin data-ready se queda la grilla de Tailwind.
+   JS define --pos (posición relativa a la activa, con signo) y --abs (su valor absoluto).
+--------------------------------------------------------------------------- */
+[data-carousel3d][data-ready] .c3d-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  perspective: 1800px;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+[data-carousel3d][data-ready] .c3d-item {
+  grid-area: 1 / 1;
+  justify-self: center;
+  width: min(82vw, 600px);
+  transform: translateX(calc(var(--pos, 0) * 62%)) translateZ(calc(var(--abs, 0) * -220px)) rotateY(calc(var(--pos, 0) * -30deg));
+  filter: brightness(calc(1 - var(--abs, 0) * 0.2)) saturate(calc(1 - var(--abs, 0) * 0.25));
+  transition:
+    transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 800ms ease,
+    opacity 600ms ease;
+}
+
+[data-carousel3d][data-ready] .c3d-item:not([data-active]) {
+  cursor: pointer;
+}
+
+[data-carousel3d][data-ready] .c3d-item:not([data-active]) .c3d-meta {
+  opacity: 0;
+}
+
+[data-carousel3d][data-ready] .c3d-meta {
+  transition: opacity 400ms ease;
+}
+
+/* En móvil solo se ven la activa y sus vecinas. */
+@media (max-width: 639px) {
+  [data-carousel3d][data-ready] .c3d-item {
+    transform: translateX(calc(var(--pos, 0) * 48%)) translateZ(calc(var(--abs, 0) * -260px)) rotateY(calc(var(--pos, 0) * -35deg));
+  }
+
+  [data-carousel3d][data-ready] .c3d-item[data-far] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Barra de progreso del punto activo: su animationend avanza el carrusel. */
+[data-carousel3d][data-autoplay] [aria-current="true"] .c3d-bar {
+  animation: c3d-progress var(--c3d-interval, 5000ms) linear forwards;
+}
+
+[data-carousel3d][data-paused] .c3d-bar {
+  animation-play-state: paused;
+}
+
+@keyframes c3d-progress {
+  to {
+    scale: 1 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-carousel3d][data-ready] .c3d-item {
+    transition-duration: 0ms;
+  }
+}
+
+/* Línea del timeline de manufactura (template-parts/home/capability.php): se dibuja al revelarse el contenedor.
+   Vertical en móvil, horizontal desde lg. */
+.timeline-line {
+  transform-origin: top;
+  transition: scale 1600ms cubic-bezier(0.2, 0.7, 0.2, 1) 300ms;
+}
+
+.js [data-reveal]:not(.is-revealed) .timeline-line {
+  scale: 1 0;
+}
+
+@media (min-width: 64rem) {
+  .timeline-line {
+    transform-origin: left;
+  }
+
+  .js [data-reveal]:not(.is-revealed) .timeline-line {
+    scale: 0 1;
+  }
 }
 
 /* ---------------------------------------------------------------------------

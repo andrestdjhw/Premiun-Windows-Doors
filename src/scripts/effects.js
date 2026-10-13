@@ -1,5 +1,5 @@
 // Efectos de las plantillas PHP: reveal al hacer scroll ([data-reveal]), tilt 3D en cards ([data-tilt])
-// y slideshow del hero ([data-hero-slider]).
+// y slideshows ([data-hero-slider] en el hero, [data-slideshow] en el resto).
 const REVEAL_RATIO = 0.15
 const MAX_TILT = 6 // grados
 
@@ -60,11 +60,12 @@ export function initTilt() {
   })
 }
 
-// Slideshow de fondo: fundido entre slides, avance automático e indicadores clicables.
+// Slideshows (hero y [data-slideshow]): fundido entre slides, avance automático e indicadores clicables.
 export function initHeroSlider() {
-  const hero = document.querySelector("[data-hero-slider]")
-  if (!hero) return
+  document.querySelectorAll("[data-hero-slider], [data-slideshow]").forEach(setupSlideshow)
+}
 
+function setupSlideshow(hero) {
   const slides = [...hero.querySelectorAll("[data-slide]")]
   const dots = [...hero.querySelectorAll("[data-slide-to]")]
   const interval = Number(hero.dataset.interval) || 6000

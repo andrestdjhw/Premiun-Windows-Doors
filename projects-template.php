@@ -2,9 +2,9 @@
 /*
  * Template Name: Projects
  *
- * /projects/. Galería de inspiración (pwd_gallery_data(), renders del sitio actual) con filtros por serie
- * y estilo vía URL (?series=&style=), sin JavaScript.
- * PENDIENTE (cliente): proyectos reales con producto, aplicación, alcance y requisitos (ver template-parts/home/projects.php).
+ * /projects/. Proyectos reales con fotos de obra (pwd_project_photos()) y galería de inspiración
+ * (pwd_gallery_data(), renders del sitio actual) con filtros por serie y estilo vía URL (?series=&style=), sin JavaScript.
+ * PENDIENTE (cliente): datos de cada proyecto real (ver pwd_project_photos()).
  */
 
 pwd_seo(
@@ -46,13 +46,64 @@ get_header(); ?>
       array('and doors in place.', 'accent'),
     ),
     'text' => 'Homes, apartments and hotels designed with Premium products. Filter by series or by window and door style.',
-    'image' => array('1536' => '2026/09/VIZ-ZENITH-LA-FARMHOUSE-Back-Yard-A.jpg'),
-    'buttons' => array(array('Browse the Gallery', '#gallery', 'light')),
+    'image' => array('1536' => '2026/10/foto_06_sin_marca-1536x1152.jpg', '1800' => '2026/10/foto_06_sin_marca.jpg'),
+    'buttons' => array(
+      array('View Projects', '#completed', 'light'),
+      array('Browse the Gallery', '#gallery', 'outline-light'),
+    ),
   ));
   ?>
 
+  <section id="completed" class="scroll-mt-28 bg-brand-50 py-16 lg:py-24">
+    <div class="site-container">
+      <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
+        <p class="eyebrow text-brand-600">Completed projects</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl">Premium products on site.</h2>
+      </div>
+
+      <div class="mt-12 space-y-16 lg:space-y-20">
+        <?php foreach (pwd_project_photos() as $p => $project) : $photos = $project['photos']; ?>
+          <article class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+            <div <?php echo pwd_reveal(); ?> class="lg:col-span-4">
+              <p class="font-mono text-xs tracking-[0.2em] text-brand-600 uppercase"><?php echo esc_html(sprintf('%02d / %s', $p + 1, $project['application'])); ?></p>
+              <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900"><?php echo esc_html($project['title']); ?></h3>
+              <dl class="mt-6 space-y-4 border-t border-brand-100 pt-6">
+                <?php foreach (array('product' => 'Product', 'scope' => 'Scope', 'requirements' => 'Requirements') as $key => $label) : ?>
+                  <div>
+                    <dt class="text-xs font-semibold tracking-wide text-brand-700 uppercase"><?php echo esc_html($label); ?></dt>
+                    <dd class="mt-1 text-sm leading-relaxed text-slate-700"><?php echo esc_html($project[$key]); ?></dd>
+                  </div>
+                <?php endforeach; ?>
+              </dl>
+            </div>
+
+            <ul <?php echo pwd_reveal(1, 150); ?> class="grid grid-cols-2 gap-3 lg:col-span-8 <?php echo count($photos) > 1 ? 'sm:grid-cols-4' : ''; ?>">
+              <?php foreach ($photos as $i => $photo) : $cover = $i === 0; ?>
+                <li class="<?php echo $cover ? 'relative col-span-2 sm:row-span-2' : ''; ?>">
+                  <a href="<?php echo esc_url(pwd_upload_url($photo)); ?>" target="_blank" rel="noopener" class="group block h-full overflow-hidden rounded-sm bg-slate-200">
+                    <img
+                      src="<?php echo esc_url(pwd_upload_sized($photo, $cover ? '1536x1152' : '768x576')); ?>"
+                      alt="<?php echo esc_attr(sprintf('%s, photo %d', $project['title'], $i + 1)); ?>"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full object-cover transition-transform duration-500 group-hover:scale-105 <?php echo $cover && count($photos) > 1 ? 'aspect-[4/3] sm:absolute sm:inset-0 sm:h-full sm:aspect-auto' : ($cover ? 'aspect-[3/2]' : 'aspect-square'); ?>"
+                    >
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
   <section id="gallery" class="scroll-mt-28 bg-white py-16 lg:py-24">
     <div class="site-container">
+      <div <?php echo pwd_reveal(); ?> class="mb-10 max-w-2xl">
+        <p class="eyebrow text-brand-600">Inspiration gallery</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl">Explore by series and style.</h2>
+      </div>
       <div class="space-y-4">
         <div class="flex flex-wrap items-center gap-2">
           <span class="mr-2 w-16 text-sm font-medium text-slate-500">Series</span>

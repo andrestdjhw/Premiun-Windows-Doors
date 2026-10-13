@@ -1,5 +1,5 @@
 <?php
-// Hero de páginas internas: foto de fondo oscurecida, H1 en varios pesos y CTAs opcionales.
+// Hero de páginas internas: foto de fondo con degradado oscuro neutro (sin teñir de azul) a la izquierda, H1 en varios pesos y CTAs opcionales.
 // $args:
 //   eyebrow  string
 //   title    array de líneas array(texto, estilo) con estilo: light | accent | medium
@@ -11,11 +11,11 @@
 $hero = wp_parse_args($args, array('title_key' => '', 'eyebrow' => '', 'title' => array(), 'text' => '', 'image' => array(), 'buttons' => array(), 'breadcrumbs' => array()));
 $line_styles = array(
   'light' => 'font-light',
-  'accent' => 'font-bold text-brand-500',
+  'accent' => 'font-bold text-brand-300',
   'medium' => 'font-medium',
 );
 ?>
-<section class="relative isolate overflow-hidden bg-brand-950">
+<section class="relative isolate overflow-hidden <?php echo $hero['image'] ? 'bg-slate-900' : 'bg-brand-950'; ?>">
   <?php if ($hero['image']) : ?>
     <img
       src="<?php echo esc_url(pwd_upload_url(reset($hero['image']))); ?>"
@@ -24,10 +24,11 @@ $line_styles = array(
       alt=""
       fetchpriority="high"
       decoding="async"
-      class="absolute inset-0 -z-10 size-full object-cover opacity-40"
+      class="absolute inset-0 -z-10 size-full object-cover"
     >
   <?php endif; ?>
-  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-r from-brand-950 via-brand-950/80 to-brand-900/30"></div>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-r from-slate-950/85 via-slate-950/60 to-slate-950/10"></div>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-t from-slate-950/40 via-transparent to-transparent"></div>
 
   <div class="site-container py-24 lg:py-36">
     <div class="max-w-3xl">

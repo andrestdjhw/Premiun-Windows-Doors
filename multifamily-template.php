@@ -24,10 +24,10 @@ get_header(); ?>
       array('Multifamily Is', 'light'),
       array('More Than More Units.', 'accent'),
     ),
+    // Foto real de obra (pwd_project_photos()).
     'image' => array(
-      '1536' => '2026/09/Multifamily-1536x975.jpg',
-      '2048' => '2026/09/Multifamily-2048x1299.jpg',
-      '2560' => '2026/09/Multifamily-scaled.jpg',
+      '1536' => '2026/10/foto_01_sin_marca-1536x1152.jpg',
+      '2000' => '2026/10/foto_01_sin_marca.jpg',
     ),
     'buttons' => array(
       array('Request Project Support', home_url('/professionals/project-support/'), 'light'),

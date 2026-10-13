@@ -16,7 +16,7 @@ get_header(); ?>
 
 <main id="content">
   <?php
-  $sections = array('hero', 'solutions', 'manufacturing', 'products', 'capability', 'series', 'professionals', 'projects', 'confidence');
+  $sections = array('hero', 'solutions', 'manufacturing', 'capability', 'products', 'series', 'professionals', 'projects', 'confidence');
 
   foreach ($sections as $section) {
     get_template_part('template-parts/home/' . $section);

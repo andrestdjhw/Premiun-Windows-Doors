@@ -21,9 +21,14 @@ get_header(); ?>
 
 <main id="content">
   <?php
-  // Sin imagen hasta tener fotos reales de la planta (no usar stock de fábricas).
+  // Foto real del piso de producción (pwd_plant_photos()).
   get_template_part('template-parts/page-hero', null, array(
     'eyebrow' => 'Manufacturing',
+    'image' => array(
+      '1536' => '2026/10/DJI_20261008140855_0274_D-1536x1152.jpg',
+      '2048' => '2026/10/DJI_20261008140855_0274_D-2048x1536.jpg',
+      '2560' => '2026/10/DJI_20261008140855_0274_D-scaled.jpg',
+    ),
     'title' => array(
       array('Manufactured in', 'light'),
       array('Corona, California.', 'accent'),

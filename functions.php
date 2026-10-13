@@ -114,6 +114,17 @@ function pwd_icon($name, $class = 'size-4') {
     'file-badge' => '<path d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M7 16.5 8 22l-3-1-3 1 1-5.5" />',
     'layers' => '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />',
     'badge-check' => '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" />',
+    'gauge' => '<path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" />',
+    'palette' => '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />',
+    'truck' => '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" />',
+    'drafting-compass' => '<path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" />',
+    'hard-hat' => '<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" /><path d="M14 6a6 6 0 0 1 6 6v3" /><path d="M4 15v-3a6 6 0 0 1 6-6" /><rect x="2" y="15" width="20" height="4" rx="1" />',
+    'package' => '<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /><path d="m7.5 4.27 9 5.15" />',
+    'building' => '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4M10 10h4M10 14h4M10 18h4" />',
+    'ruler' => '<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" /><path d="m14.5 12.5 2-2" /><path d="m11.5 9.5 2-2" /><path d="m8.5 6.5 2-2" /><path d="m17.5 15.5 2-2" />',
+    'sliders' => '<path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4" />',
+    'headset' => '<path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /><path d="M21 16v2a4 4 0 0 1-4 4h-5" />',
+    'clipboard-check' => '<rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" />',
   );
 
   if (!isset($paths[$name])) return '';
@@ -490,6 +501,37 @@ function pwd_door_diagram($type, $class = 'h-24 w-auto') {
     '<svg viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" class="%s">%s</svg>',
     esc_attr($class),
     $shapes[$type]
+  );
+}
+
+// Icono de operación de producto: mismos trazos que premiumwindows.com (marco + hoja/riel).
+// El marco usa currentColor; la hoja/riel usa el azul de marca (--op-accent para sobreescribirlo).
+function pwd_operation_icon($type, $class = 'h-12 w-auto') {
+  $frame_v = '<path class="op-frame" d="M610,50v900H50V50h560M660,0H0v1000h660V0h0Z" />';
+  $frame_h = '<path class="op-frame" d="M990,200v640H50V200h940M1040,150H0v740h1040V150h0Z" />';
+  $frame_d = '<path class="op-frame" d="M990,50v900H50V50h940M1040,0H0v1000h1040V0h0Z" />';
+  $icons = array(
+    'picture' => array(660, $frame_v),
+    'casement' => array(660, '<polygon class="op-accent" points="530 90 294.444 50 115.249 50 500 115.335 500 692 480 700 480 820 500 828 500 884.665 115.249 950 294.444 950 530 910 530 90" />' . $frame_v),
+    'awning' => array(1040, '<path class="op-accent" d="M990,283.35v205.537l-40,271.113H90l-40-271.113v-205.536l65.899,446.648h336.101l8-20h120l8,20h336.102l65.899-446.65Z" />' . $frame_h),
+    'horizontal-sliding' => array(1040, '<polygon class="op-accent" points="510 200 510 452 490 460 490 580 510 588 510 840 540 840 540 200 510 200" />' . $frame_h),
+    'single-hung' => array(660, '<polygon class="op-accent" points="398 480 390 460 270 460 262 480 50 480 50 510 610 510 610 480 398 480" />' . $frame_v),
+    'double-hung' => array(660, '<path class="op-accent" d="M50,800h560v30H50v-30ZM398,330l-8-20h-120l-8,20H50v30h560v-30h-212ZM50,189v31h560v-31H50ZM50,689h211.6l8.4,21h120l8.4-21h211.6v-30H50v30Z" />' . $frame_v),
+    'arch' => array(660, '<path class="op-frame" d="M330,50c154.365,0,280,124.966,280,280v620H50V330c0-154.568,125.206-280,280-280M330,0C147.746,0,0,147.746,0,330v670h660V330C660,147.746,512.254,0,330,0h0Z" />'),
+    'special-shape' => array(660, '<path class="op-frame" d="M50,106.752l560,466.667v376.581s-559.999,0-559.999,0V106.752M0,0v1000h660v-450S0,0,0,0h0Z" />'),
+    'patio-sliding' => array(1040, '<polygon class="op-accent" points="510 50 510 452 490 460 490 580 510 588 510 950 540 950 540 50 510 50" />' . $frame_d),
+    'french-swing' => array(1040, '<path class="op-accent" d="M630,123.287v308.713l20,8v120l-20,8v308.712l360,67.172v6.115h-130.781l-259.219-48.367V98.367l259.219-48.367h130.781v6.115l-360,67.172ZM50,50v6.115l360,67.172v308.713l-20,8v120l20,8v308.713l-360,67.172v6.115h130.781l259.219-48.367V98.367L180.781,50H50Z" />' . $frame_d),
+    'multi-slide' => array(1300, '<path class="op-accent" d="M680,50h30v900h-30v-372l-20-8v-120l20-8V50ZM290,950h30V50h-30v900ZM910,50v392l-20,8v120l20,8v372h30V50h-30ZM520,950h30V50h-30v900Z" /><path class="op-frame" d="M0,0v1000h1300V0H0ZM50,950V50h369v900H50ZM1250,950H450V50h800v900Z" />'),
+    'multi-fold' => array(1300, '<path class="op-accent" d="M656.612,950l173.388-60V110l-173.316-60h-86.564l-.195,900h86.688ZM800,131.361v296.639l-30,12v120l30,12v296.636l-200.073,69.234.189-875.706,199.883,69.197ZM50,50h46.85l173.15,60v780l-173.693,60h-46.307v-15.743l190-65.633V131.354L50,65.516v-15.516ZM290,890l173.212,60h86.606l.195-900h-86.604l-173.409,60v780ZM320,131.365l200.01-69.204-.189,875.699-199.821-69.217V131.365Z" /><path class="op-frame" d="M0,0v1000h1300V0H0ZM50,50h980v900H50V50ZM1250,950h-190V50h190v900Z" />'),
+  );
+
+  if (!isset($icons[$type])) return '';
+
+  return sprintf(
+    '<svg viewBox="0 0 %d 1000" fill="currentColor" aria-hidden="true" class="op-icon %s">%s</svg>',
+    $icons[$type][0],
+    esc_attr($class),
+    $icons[$type][1]
   );
 }
 

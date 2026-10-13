@@ -1,12 +1,14 @@
 <?php
 // Hero con slideshow de fondo + franja de confianza.
 // CTA principal: productos; secundario: profesionales.
+// Fotos reales: obra (pwd_project_photos()) alternada con la planta en Corona (pwd_plant_photos()).
+// Versiones redimensionadas por WordPress: los originales del dron miden 8192px.
 $slides = array(
-  array('image' => '2026/09/ZENITH_Series.jpg', 'label' => 'Zenith Series'),
-  array('image' => '2026/09/Timeless_Series.jpg', 'label' => 'Timeless Series'),
-  array('image' => '2026/09/Serene_Series.jpg', 'label' => 'Serene Series'),
-  array('image' => '2026/09/Elegance_Series.jpg', 'label' => 'Elegance Series'),
-  array('image' => '2026/09/Aluminum_Series.jpg', 'label' => 'Aluminum Series'),
+  array('image' => '2026/10/foto_01_sin_marca.jpg', 'label' => 'Apartment Community'),
+  array('image' => '2026/10/DJI_20261008113058_0172_D-2048x1536.jpg', 'label' => 'Corona, California facility'),
+  array('image' => '2026/10/foto_06_sin_marca.jpg', 'label' => 'Townhome Community'),
+  array('image' => '2026/10/DJI_20261008140855_0274_D-2048x1536.jpg', 'label' => 'Production floor'),
+  array('image' => '2026/10/DJI_20261008113720_0183_D-2048x1536.jpg', 'label' => 'Corona facility from above'),
 );
 $interval = 6000; // ms por slide
 
@@ -76,14 +78,16 @@ $trust = array(
   </ol>
 </section>
 
-<section aria-label="Why Premium" class="border-b border-slate-200 bg-slate-50">
-  <ul class="site-container grid grid-cols-1 divide-y divide-slate-200 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+<section aria-label="Why Premium" class="bg-linear-to-r from-brand-950 via-brand-900 to-brand-700 text-white">
+  <ul class="site-container grid grid-cols-1 divide-y divide-white/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
     <?php foreach ($trust as $i => $item) : ?>
       <li <?php echo pwd_reveal($i); ?> class="flex items-center gap-5 py-7 sm:py-8 lg:justify-center lg:px-6 lg:first:justify-start lg:first:pl-0 lg:last:justify-end lg:last:pr-0">
-        <?php echo pwd_icon($item['icon'], 'size-11 shrink-0 text-slate-700'); ?>
+        <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20">
+          <?php echo pwd_icon($item['icon'], 'size-7 text-white'); ?>
+        </span>
         <div>
-          <p class="max-w-[12rem] text-[17px] leading-snug text-slate-900"><?php echo esc_html($item['title']); ?></p>
-          <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500"><?php echo esc_html($item['label']); ?></p>
+          <p class="max-w-[12rem] text-[17px] leading-snug font-medium text-white"><?php echo esc_html($item['title']); ?></p>
+          <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-brand-100/70"><?php echo esc_html($item['label']); ?></p>
         </div>
       </li>
     <?php endforeach; ?>

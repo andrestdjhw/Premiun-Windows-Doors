@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer"
 import LanguageToggle from "./components/LanguageToggle"
 import { applyLang, getInitialLang } from "./scripts/i18n"
 import { initHeroSlider, initReveal, initTilt } from "./scripts/effects"
+import { initCarousel3d } from "./scripts/carousel3d"
 import { initAutoSubmit, initEmailForms } from "./scripts/forms"
 import { initFaqSearch } from "./scripts/faqs"
 import { initProductPage } from "./scripts/product"
@@ -24,6 +25,7 @@ if (footerRoot) {
 initReveal()
 initTilt()
 initHeroSlider()
+initCarousel3d()
 initEmailForms()
 initAutoSubmit()
 initFaqSearch()

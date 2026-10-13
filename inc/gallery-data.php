@@ -34,3 +34,55 @@ function pwd_gallery_data() {
     array('image' => '2026/09/VIZ-Timeless-Home-Basic-Back.jpg', 'title' => 'Timeless Home Basic Back', 'series' => 'timeless', 'styles' => array('arch-special-shape', 'horizontal-sliding', 'picture', 'single-hung', 'patio-sliding')),
   );
 }
+
+// Proyectos reales (fotos de obra subidas 2026-10-12). Se usan en el slideshow del Home y en /projects/.
+// 'photos': archivos de uploads; el primero es la portada.
+// PENDIENTE (cliente): nombre/ubicación de cada proyecto, series y productos instalados. 'scope' y
+// 'requirements' describen lo que se ve en las fotos y deben confirmarse.
+function pwd_project_photos() {
+  $u = '2026/10/';
+  return array(
+    array(
+      'title' => 'Apartment Community',
+      'product' => 'Premium windows.',
+      'application' => 'Multifamily',
+      'scope' => 'Three-story apartment building with a ground-floor lobby.',
+      'requirements' => 'Tall corner glazing and consistent units across every façade.',
+      'photos' => array($u . 'foto_01_sin_marca.jpg', $u . 'foto_02_sin_marca.jpg', $u . 'foto_04_sin_marca.jpg', $u . 'foto_05_sin_marca.jpg', $u . 'foto_03_sin_marca.jpg'),
+    ),
+    array(
+      'title' => 'Townhome Community',
+      'product' => 'Premium windows.',
+      'application' => 'Multifamily',
+      'scope' => 'New-construction townhome community.',
+      'requirements' => 'Repeatable window packages across every home.',
+      'photos' => array($u . 'foto_06_sin_marca.jpg', $u . 'foto_07_sin_marca.jpg', $u . 'foto_08_sin_marca.jpg'),
+    ),
+    array(
+      'title' => 'Urban Townhomes',
+      'product' => 'Premium windows.',
+      'application' => 'Multifamily',
+      'scope' => 'Four-story townhomes with rooftop decks.',
+      'requirements' => 'Coordinated openings across stacked floors.',
+      'photos' => array($u . 'Image-1.png'),
+    ),
+  );
+}
+
+// Fotos de la planta en Corona (dron e interior, 2026-10-08). Pies de foto descriptivos, sin cifras.
+function pwd_plant_photos() {
+  $u = '2026/10/';
+  return array(
+    'exterior' => array('image' => $u . 'DJI_20261008113058_0172_D.jpg', 'caption' => 'Corona, California facility'),
+    'sign' => array('image' => $u . 'DJI_20261008113545_0177_D.jpg', 'caption' => 'Premium Windows & Doors headquarters'),
+    'aerial' => array('image' => $u . 'DJI_20261008113720_0183_D.jpg', 'caption' => 'Corona facility from above'),
+    'materials' => array('image' => $u . 'DJI_20261008140330_0257_D.jpg', 'caption' => 'Materials and components'),
+    'welding' => array('image' => $u . 'DJI_20261008140449_0263_D.jpg', 'caption' => 'Fabrication equipment'),
+    'floor' => array('image' => $u . 'DJI_20261008140855_0274_D.jpg', 'caption' => 'Production floor'),
+    'assembly' => array('image' => $u . 'DJI_20261008141928_0293_D.jpg', 'caption' => 'Assembly'),
+    'finished' => array('image' => $u . 'DJI_20261008142042_0299_D.jpg', 'caption' => 'Finished units'),
+    'staged' => array('image' => $u . 'DJI_20261008142114_0300_D.jpg', 'caption' => 'Units staged for packaging'),
+    'shipping' => array('image' => $u . 'DJI_0018.jpg', 'caption' => 'Loading for delivery'),
+    'yard' => array('image' => $u . 'DJI_0017.jpg', 'caption' => 'Shipping yard'),
+  );
+}
