@@ -18,7 +18,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Resources', '/resources/'), array('Service Request', '/service-request/')),
+    'breadcrumbs' => array(array('Resources', '/about/#resources'), array('Service Request', '/service-request/')),
     'eyebrow' => 'Service Request',
     'title' => array(
       array('Service for installed', 'light'),

@@ -39,7 +39,7 @@ get_header(); ?>
     array('icon' => 'award', 'label' => 'Office hours', 'value' => $contact['hours'], 'href' => '', 'link' => 'Fax ' . $contact['fax']),
   );
   ?>
-  <section class="bg-slate-50 py-16 lg:py-20">
+  <section class="bg-surface py-16 lg:py-20">
     <ul class="site-container grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <?php foreach ($details as $i => $item) : ?>
         <li <?php echo pwd_reveal($i); ?> class="flex h-full flex-col rounded-sm border border-slate-200 bg-white p-6">

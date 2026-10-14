@@ -25,7 +25,10 @@ function pwd_navbar_config() {
     'homeUrl' => home_url('/'),
     'imagesUrl' => get_theme_file_uri('/assets/images/nav/'),
     'uploadsUrl' => wp_upload_dir()['baseurl'] . '/',
-    'logoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : get_theme_file_uri('/assets/images/brand/logo-horizontal.png'),
+    // Full color sobre fondo blanco (header, menú móvil); una tinta para fondos oscuros (footer, se invierte a blanco).
+    'logoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : get_theme_file_uri('/assets/images/brand/logo-horizontal-color.png'),
+    'markUrl' => get_theme_file_uri('/assets/images/brand/isotipo-mono.png'),
+    'logoMonoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : get_theme_file_uri('/assets/images/brand/logo-horizontal-mono.png'),
     'siteName' => html_entity_decode(get_bloginfo('name'), ENT_QUOTES),
     'quoteUrl' => home_url('/request-a-quote/'),
   );
@@ -133,6 +136,8 @@ function pwd_icon($name, $class = 'size-4') {
     'ruler' => '<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" /><path d="m14.5 12.5 2-2" /><path d="m11.5 9.5 2-2" /><path d="m8.5 6.5 2-2" /><path d="m17.5 15.5 2-2" />',
     'sliders' => '<path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4" />',
     'headset' => '<path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /><path d="M21 16v2a4 4 0 0 1-4 4h-5" />',
+    'search' => '<circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />',
+    'download' => '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" />',
     'clipboard-check' => '<rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" />',
   );
 
@@ -142,6 +147,30 @@ function pwd_icon($name, $class = 'size-4') {
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="%s">%s</svg>',
     esc_attr($class),
     $paths[$name]
+  );
+}
+
+// Isotipo de marca como marca de agua decorativa (grande, tenue y recortado contra el borde).
+// La sección que lo usa necesita "relative isolate overflow-hidden".
+// $position: right | left | top-right | bottom-right | bottom-left. $tone: light (fondo claro) | dark (fondo oscuro).
+function pwd_brand_mark($position = 'right', $tone = 'light') {
+  $positions = array(
+    'right' => 'top-1/2 -right-28 w-[26rem] -translate-y-1/2 lg:-right-20 lg:w-[38rem]',
+    'left' => 'top-1/2 -left-28 w-[26rem] -translate-y-1/2 lg:-left-20 lg:w-[38rem]',
+    'top-right' => '-top-24 -right-24 w-[24rem] lg:-top-32 lg:-right-16 lg:w-[34rem]',
+    'bottom-right' => '-right-24 -bottom-28 w-[24rem] lg:-right-16 lg:-bottom-40 lg:w-[34rem]',
+    'bottom-left' => '-bottom-28 -left-24 w-[24rem] lg:-bottom-40 lg:-left-16 lg:w-[34rem]',
+  );
+  $tones = array(
+    'light' => 'opacity-[0.06]',
+    'dark' => 'opacity-[0.07] brightness-0 invert',
+  );
+
+  return sprintf(
+    '<img src="%s" alt="" aria-hidden="true" loading="lazy" decoding="async" width="800" height="785" class="pointer-events-none absolute -z-10 max-w-none select-none %s %s">',
+    esc_url(get_theme_file_uri('/assets/images/brand/isotipo-mono.png')),
+    $positions[$position] ?? $positions['right'],
+    $tones[$tone] ?? $tones['light']
   );
 }
 
@@ -492,6 +521,9 @@ require_once get_theme_file_path('/inc/redirects.php');
 
 // Fichas de producto por estilo + serie, sus datos y el importador de PDFs.
 require_once get_theme_file_path('/inc/products.php');
+
+// Búsqueda del sitio sobre las plantillas, fichas de producto, PDFs y blog (search.php).
+require_once get_theme_file_path('/inc/search.php');
 
 // Esquema de elevación de un tipo de puerta (mismo estilo que pwd_window_diagram()).
 // Líneas en V: hoja abatible (el vértice apunta a la bisagra). Flechas: hoja corrediza.

@@ -1,7 +1,8 @@
 import React from "react"
 
-// Logo horizontal de marca (assets/images/brand/logo-horizontal.png, o el logo personalizado de WordPress
-// si se define en Apariencia → Personalizar). Es de una tinta: `inverted` lo pasa a blanco en fondos oscuros (footer).
+// Logo horizontal de marca (assets/images/brand/: full color en header y menú móvil, una tinta en el footer),
+// o el logo personalizado de WordPress si se define en Apariencia → Personalizar.
+// `inverted` pasa la versión de una tinta a blanco en fondos oscuros.
 export default function Logo({ href, logoUrl, siteName = "Premium Windows & Doors", compact = false, inverted = false }) {
   return (
     <a href={href} translate="no" className="flex shrink-0 items-center" aria-label={`${siteName} home`}>

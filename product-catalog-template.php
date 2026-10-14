@@ -24,7 +24,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Resources', '/resources/'), array('Product Catalog', '/resources/product-catalog/')),
+    'breadcrumbs' => array(array('Resources', '/about/#resources'), array('Product Catalog', '/resources/product-catalog/')),
     'eyebrow' => 'Product Catalog',
     'title' => array(
       array('The complete catalog,', 'light'),
@@ -42,7 +42,7 @@ get_header(); ?>
   <div id="catalog" class="scroll-mt-28">
     <?php $i = 0; foreach (pwd_series_data() as $slug => $series) :
       if (empty($by_series[$slug])) continue; ?>
-      <section id="<?php echo esc_attr($slug); ?>" class="scroll-mt-28 <?php echo $i++ % 2 ? 'bg-slate-50' : 'bg-white'; ?> py-16 lg:py-24">
+      <section id="<?php echo esc_attr($slug); ?>" class="scroll-mt-28 <?php echo $i++ % 2 ? 'bg-surface' : 'bg-white'; ?> py-16 lg:py-24">
         <div class="site-container">
           <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>

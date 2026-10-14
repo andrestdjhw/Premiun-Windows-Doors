@@ -2,7 +2,7 @@
 // Product fit: Aluminum Series y sistemas de vinilo aplicables SOLO donde los requisitos del proyecto lo permitan.
 // Importante (brief): no dar a entender que todas las series sirven para cualquier aplicación comercial.
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
       <p class="eyebrow text-brand-600">Product fit</p>

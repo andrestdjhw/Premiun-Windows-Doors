@@ -4,7 +4,9 @@
  *
  * About Premium (/about/). Objetivo: convertir la historia, la planta y la identidad
  * de fabricante en evidencia creíble de la marca.
- * Cada sección vive en template-parts/about/.
+ * Cada sección vive en template-parts/about/; el proceso de manufactura se comparte con el Home.
+ * Incluye las capacidades y los recursos (antes /capabilities/ y /resources/, que redirigen a
+ * /about/#capabilities y /about/#resources).
  */
 
 pwd_seo(
@@ -17,11 +19,13 @@ get_header(); ?>
 
 <main id="content">
   <?php
-  $sections = array('hero', 'story', 'pillars');
-
-  foreach ($sections as $section) {
-    get_template_part('template-parts/about/' . $section);
-  }
+  get_template_part('template-parts/about/hero');
+  get_template_part('template-parts/about/story');
+  get_template_part('template-parts/home/capability'); // Proceso de manufactura (mismo bloque del Home).
+  get_template_part('template-parts/about/capabilities'); // Antes el hub /capabilities/.
+  get_template_part('template-parts/resources/categories', null, array('id' => 'resources')); // Antes el hub /resources/.
+  get_template_part('template-parts/resources/stages');
+  get_template_part('template-parts/about/pillars');
   ?>
 </main>
 

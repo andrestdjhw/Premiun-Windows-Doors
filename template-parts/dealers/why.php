@@ -1,7 +1,7 @@
 <?php
 // Why Premium: los 7 puntos del brief.
 $reasons = array(
-  array('icon' => 'factory', 'title' => 'Made-to-order manufacturing', 'href' => '/capabilities/'),
+  array('icon' => 'factory', 'title' => 'Made-to-order manufacturing', 'href' => '/capabilities/manufacturing/'),
   array('icon' => 'layers', 'title' => 'Vinyl and aluminum series', 'href' => '/series/#compare'),
   array('icon' => 'file-badge', 'title' => 'Windows and doors', 'href' => '/products/'),
   array('icon' => 'badge-check', 'title' => 'Residential, commercial and multifamily applications', 'href' => '/solutions/'),
@@ -10,7 +10,7 @@ $reasons = array(
   array('icon' => 'shield-check', 'title' => 'Service and warranty infrastructure', 'href' => '/warranty/'),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Why Premium</p>

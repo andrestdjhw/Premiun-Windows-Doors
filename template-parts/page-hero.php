@@ -15,7 +15,7 @@ $line_styles = array(
   'medium' => 'font-medium',
 );
 ?>
-<section class="relative isolate overflow-hidden <?php echo $hero['image'] ? 'bg-slate-900' : 'bg-brand-950'; ?>">
+<section class="relative isolate overflow-hidden <?php echo $hero['image'] ? 'bg-slate-900' : 'bg-brand-gradient'; ?>">
   <?php if ($hero['image']) : ?>
     <img
       src="<?php echo esc_url(pwd_upload_url(reset($hero['image']))); ?>"

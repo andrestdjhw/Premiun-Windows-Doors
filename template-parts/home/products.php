@@ -29,22 +29,23 @@ $categories = array(
 );
 
 $requirements = array(
-  array('icon' => 'gauge', 'title' => 'Performance', 'text' => 'Energy efficiency, sound control, coastal and high-wind.', 'href' => home_url('/capabilities/')),
+  array('icon' => 'gauge', 'title' => 'Performance', 'text' => 'Energy efficiency, sound control, coastal and high-wind.', 'href' => home_url('/about/#performance')),
   array('icon' => 'layers', 'title' => 'Material', 'text' => 'Compare vinyl and aluminum series side by side.', 'href' => home_url('/series/#compare')),
   array('icon' => 'palette', 'title' => 'Design', 'text' => 'Finishes, colors, glass and hardware options.', 'href' => home_url('/capabilities/finishes-colors/')),
 );
 ?>
-<section class="bg-white py-20 lg:py-28">
+<section class="relative isolate overflow-hidden bg-brand-gradient py-20 text-white lg:py-28">
+  <?php echo pwd_brand_mark('top-right', 'dark'); ?>
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
-      <p class="eyebrow text-brand-600">Products</p>
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl">Explore products</h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-600">Choose the product first, or start with the performance, material, and design requirements of your project.</p>
+      <p class="eyebrow text-brand-300">Products</p>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl">Explore products</h2>
+      <p class="mt-4 text-lg leading-relaxed text-white/70">Choose the product first, or start with the performance, material, and design requirements of your project.</p>
     </div>
 
     <div class="mt-12 grid gap-6 lg:grid-cols-2">
       <?php foreach ($categories as $i => $category) : ?>
-        <div <?php echo pwd_reveal($i); ?> class="flex flex-col rounded-sm border border-slate-200 bg-white p-6 sm:p-8">
+        <div <?php echo pwd_reveal($i); ?> class="flex flex-col rounded-sm bg-white p-6 text-slate-900 sm:p-8">
           <div class="flex items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
               <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500"><?php echo esc_html(sprintf('%02d operation styles', count($category['links']))); ?></p>
@@ -76,10 +77,10 @@ $requirements = array(
       <?php endforeach; ?>
     </div>
 
-    <p data-reveal class="mt-14 text-sm font-semibold text-slate-900">Or start with your requirements</p>
+    <p data-reveal class="mt-14 text-sm font-semibold text-white">Or start with your requirements</p>
     <div class="mt-4 grid gap-4 md:grid-cols-3">
       <?php foreach ($requirements as $i => $item) : ?>
-        <a href="<?php echo esc_url($item['href']); ?>" <?php echo pwd_reveal($i); ?> data-tilt class="group flex items-start gap-5 rounded-sm border border-slate-200 bg-white p-6 transition-colors hover:border-brand-600">
+        <a href="<?php echo esc_url($item['href']); ?>" <?php echo pwd_reveal($i); ?> data-tilt class="group flex items-start gap-5 rounded-sm border border-transparent bg-white p-6 transition-colors hover:border-brand-500">
           <span class="flex size-11 shrink-0 items-center justify-center rounded-sm bg-brand-50 text-brand-700 transition-colors group-hover:bg-brand-700 group-hover:text-white">
             <?php echo pwd_icon($item['icon'], 'size-5'); ?>
           </span>

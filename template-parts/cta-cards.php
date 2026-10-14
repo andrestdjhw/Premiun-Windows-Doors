@@ -3,7 +3,7 @@
 // $args: title, ctas (array de label, text, href relativo al home).
 $block = wp_parse_args($args, array('title' => '', 'ctas' => array()));
 ?>
-<section class="bg-slate-50 py-20 lg:py-24">
+<section class="bg-surface py-20 lg:py-24">
   <div class="site-container">
     <h2 <?php echo pwd_reveal(); ?> class="text-3xl font-semibold tracking-tight text-slate-900 lg:text-4xl"><?php echo esc_html($block['title']); ?></h2>
 

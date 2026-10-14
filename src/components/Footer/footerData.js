@@ -40,7 +40,8 @@ export function getFooterData({ homeUrl = "/" }) {
       links: [
         { label: "About Us", href: u("/about/") },
         { label: "Projects", href: u("/projects/") },
-        { label: "Capabilities", href: u("/capabilities/") },
+        { label: "Capabilities", href: u("/about/#capabilities") },
+        { label: "Resources", href: u("/about/#resources") },
         { label: "Blog & News", href: u("/blog/") },
         { label: "Contact", href: u("/contact/") },
       ],

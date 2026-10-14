@@ -2,7 +2,7 @@
 // Need support: si los documentos no responden el requisito, ir al contacto técnico/de proyecto
 // (no al formulario general de consumidor).
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-24">
+<section class="bg-brand-gradient py-20 text-white lg:py-24">
   <div class="site-container grid items-center gap-10 lg:grid-cols-12">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-8">
       <p class="eyebrow text-brand-100">Need support</p>

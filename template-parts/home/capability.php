@@ -1,5 +1,7 @@
 <?php
 // Sección: capacidad de manufactura (proceso conectado de selección a entrega).
+// $args['join']: 'bottom' cuando la sigue otra sección oscura (Home: manufacturing.php), así el degradado termina
+// en brand-950 sólido y el espaciado inferior se reduce; vacío cuando va sola (About).
 // Fondo: foto real del piso de producción. Timeline horizontal en desktop y vertical en móvil; la línea se dibuja al entrar en pantalla (.timeline-line en src/index.css).
 // PENDIENTE: confirmar con operaciones la descripción de cada paso.
 $steps = array(
@@ -9,10 +11,12 @@ $steps = array(
   array('icon' => 'package', 'title' => 'Packaging', 'text' => 'Protected for the trip from Corona to the jobsite.'),
   array('icon' => 'headset', 'title' => 'Support', 'text' => 'Project and dealer support through delivery.'),
 );
+$join_bottom = ($args['join'] ?? '') === 'bottom';
 ?>
-<section class="relative isolate overflow-hidden bg-brand-950 py-20 text-white lg:py-28">
-  <img src="<?php echo esc_url(pwd_upload_sized(pwd_plant_photos()['floor']['image'], '2048x1536')); ?>" alt="" loading="lazy" decoding="async" class="absolute inset-0 -z-10 size-full object-cover opacity-25">
-  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-b from-brand-950/80 via-brand-950/90 to-brand-950"></div>
+<section class="relative isolate overflow-hidden bg-brand-950 text-white <?php echo $join_bottom ? 'pt-20 pb-10 lg:pt-28 lg:pb-14' : 'py-20 lg:py-28'; ?>">
+  <img src="<?php echo esc_url(pwd_upload_sized(pwd_plant_photos()['floor']['image'], '2048x1536')); ?>" alt="" loading="lazy" decoding="async" class="absolute inset-0 -z-10 size-full object-cover">
+  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-brand-950/20 mix-blend-multiply"></div>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-b from-brand-950/80 via-brand-950/70 <?php echo $join_bottom ? 'via-70% to-brand-950' : 'to-brand-950/80'; ?>"></div>
 
   <div class="site-container">
     <div class="grid gap-8 lg:grid-cols-2 lg:items-end lg:gap-20">
@@ -25,7 +29,7 @@ $steps = array(
           Premium&rsquo;s manufacturing operation brings product development, custom configurations, quality control, packaging, and support into one connected process, helping customers move from selection to delivery with greater clarity.
         </p>
         <div class="mt-8">
-          <?php echo pwd_button('Explore Manufacturing', home_url('/capabilities/'), 'light'); ?>
+          <?php echo pwd_button('Explore Manufacturing', home_url('/capabilities/manufacturing/'), 'light'); ?>
         </div>
       </div>
     </div>
@@ -44,7 +48,7 @@ $steps = array(
             </span>
             <div class="pt-1 lg:mt-6 lg:pt-0">
               <h3 class="text-lg font-semibold tracking-tight"><?php echo esc_html($step['title']); ?></h3>
-              <p class="mt-2 text-sm leading-relaxed text-white/60 lg:mx-auto lg:max-w-60"><?php echo esc_html($step['text']); ?></p>
+              <p class="mt-2 text-sm leading-relaxed text-white/80 lg:mx-auto lg:max-w-60"><?php echo esc_html($step['text']); ?></p>
             </div>
           </li>
         <?php endforeach; ?>

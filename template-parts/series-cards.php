@@ -10,7 +10,7 @@ $series = array(
   array('slug' => 'aluminum', 'name' => 'Aluminum', 'tagline' => 'Strength in Form', 'image' => '2026/09/Aluminum_Series-768x512.jpg'),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-2xl">

@@ -39,7 +39,7 @@ get_header(); ?>
   ?>
 
   <?php foreach ($groups as $key => $group) : ?>
-    <section id="<?php echo esc_attr($key); ?>" class="scroll-mt-28 <?php echo $key === 'windows' ? 'bg-slate-50' : 'bg-white'; ?> py-20 lg:py-28">
+    <section id="<?php echo esc_attr($key); ?>" class="scroll-mt-28 <?php echo $key === 'windows' ? 'bg-surface' : 'bg-white'; ?> py-20 lg:py-28">
       <div class="site-container">
         <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

@@ -7,7 +7,8 @@ $proofs = array(
   array('icon' => 'shield-check', 'title' => 'Transferable Lifetime Warranty', 'text' => 'Subject to current terms and conditions.', 'href' => home_url('/warranty/'), 'external' => false),
 );
 ?>
-<section class="border-t border-slate-200 bg-brand-50 py-20 lg:py-28">
+<section class="relative isolate overflow-hidden bg-surface py-20 lg:py-28">
+  <?php echo pwd_brand_mark('top-right', 'light'); ?>
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
       <p class="eyebrow text-brand-600">Verifiable confidence</p>
@@ -24,7 +25,7 @@ $proofs = array(
             data-tilt
             href="<?php echo esc_url($proof['href']); ?>"
             <?php if ($proof['external']) echo 'target="_blank" rel="noopener noreferrer"'; ?>
-            class="group flex h-full flex-col rounded-sm border border-brand-100 bg-white p-7 transition-colors hover:border-brand-600"
+            class="group flex h-full flex-col rounded-sm border border-slate-200 bg-white p-7 transition-colors hover:border-brand-600"
           >
             <span class="flex size-12 items-center justify-center rounded-full bg-brand-50 text-brand-700">
               <?php echo pwd_icon($proof['icon'], 'size-6'); ?>

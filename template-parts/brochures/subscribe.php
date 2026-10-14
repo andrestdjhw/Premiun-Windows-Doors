@@ -3,7 +3,7 @@
 // y solo pide el email. Se envía con EmailJS (PWD_EMAILJS_NEWSLETTER_TEMPLATE_ID).
 $input = 'block w-full rounded-sm border border-white/20 bg-white/10 px-4 py-3 text-[15px] text-white outline-none transition-colors placeholder:text-white/50 focus:border-white focus:ring-2 focus:ring-white/20';
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-24">
+<section class="bg-brand-gradient py-20 text-white lg:py-24">
   <div class="site-container grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-5">
       <p class="eyebrow text-brand-100">Optional</p>

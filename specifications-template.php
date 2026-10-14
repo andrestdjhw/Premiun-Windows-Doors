@@ -39,7 +39,7 @@ get_header(); ?>
   ?>
 
   <?php foreach (array('window' => 'Windows', 'door' => 'Doors') as $kind => $label) : ?>
-    <section id="<?php echo esc_attr(strtolower($label)); ?>" class="scroll-mt-28 <?php echo $kind === 'window' ? 'bg-white' : 'bg-slate-50'; ?> py-20 lg:py-28">
+    <section id="<?php echo esc_attr(strtolower($label)); ?>" class="scroll-mt-28 <?php echo $kind === 'window' ? 'bg-white' : 'bg-surface'; ?> py-20 lg:py-28">
       <div class="site-container">
         <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
           <p class="eyebrow text-brand-600"><?php echo esc_html(count($groups[$kind]) . ' products'); ?></p>

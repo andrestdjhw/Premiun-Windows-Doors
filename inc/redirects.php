@@ -115,6 +115,18 @@ function pwd_legacy_redirect() {
 // Prioridad 1: antes de redirect_canonical() de WordPress.
 add_action('template_redirect', 'pwd_legacy_redirect', 1);
 
+// Los hubs /capabilities/ y /resources/ se integraron en About (2026-10): 301 a su sección.
+// Las subpáginas (/capabilities/{slug}/, /resources/{slug}/) siguen igual.
+function pwd_capabilities_hub_redirect() {
+  $hubs = array('capabilities' => '/about/#capabilities', 'resources' => '/about/#resources');
+  $uri = is_page() ? get_page_uri(get_queried_object_id()) : '';
+  if (isset($hubs[$uri])) {
+    wp_safe_redirect(home_url($hubs[$uri]), 301, 'Premium Windows & Doors');
+    exit;
+  }
+}
+add_action('template_redirect', 'pwd_capabilities_hub_redirect', 1);
+
 // WordPress "adivina" a dónde mandar un 404 buscando slugs parecidos (ej. /windows/arch/ →
 // /professionals/architects-specifiers/). Esas adivinanzas son 301 permanentes y suelen ser
 // incorrectas, así que se desactivan: una URL inexistente responde 404.

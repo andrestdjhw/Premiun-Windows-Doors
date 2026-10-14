@@ -3,7 +3,7 @@
 // muestra las opciones exactas y los documentos técnicos de ese modelo (brief).
 $options = array('Frame type', 'Glazing', 'Grids', 'Hardware', 'Color', 'Configuration');
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-28">
+<section class="bg-brand-gradient py-20 text-white lg:py-28">
   <div class="site-container grid gap-14 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-6">
       <p class="eyebrow text-brand-100">Custom manufacturing</p>
@@ -19,7 +19,7 @@ $options = array('Frame type', 'Glazing', 'Grids', 'Hardware', 'Color', 'Configu
 
     <ul class="grid grid-cols-2 gap-px self-center overflow-hidden rounded-sm bg-white/10 lg:col-span-5 lg:col-start-8">
       <?php foreach ($options as $i => $option) : ?>
-        <li <?php echo pwd_reveal($i % 2); ?> class="flex items-center gap-3 bg-brand-950 p-5 font-medium">
+        <li <?php echo pwd_reveal($i % 2); ?> class="flex items-center gap-3 bg-brand-950/60 p-5 font-medium">
           <?php echo pwd_icon('badge-check', 'size-5 shrink-0 text-brand-500'); ?>
           <?php echo esc_html($option); ?>
         </li>

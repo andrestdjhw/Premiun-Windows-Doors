@@ -4,7 +4,7 @@
 $series = pwd_series_data();
 $interval = 5000; // ms por serie
 ?>
-<section class="overflow-x-clip bg-brand-50 py-20 lg:py-28">
+<section class="overflow-x-clip bg-white py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-2xl">

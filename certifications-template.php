@@ -18,7 +18,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Resources', '/resources/'), array('Certifications', '/resources/certifications/')),
+    'breadcrumbs' => array(array('Resources', '/about/#resources'), array('Certifications', '/resources/certifications/')),
     'eyebrow' => 'Certifications',
     'title' => array(
       array('Certification documents,', 'light'),

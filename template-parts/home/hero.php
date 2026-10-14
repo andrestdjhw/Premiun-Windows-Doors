@@ -23,7 +23,7 @@ $trust = array(
   data-hero-slider
   data-interval="<?php echo esc_attr($interval); ?>"
   style="--slide-interval: <?php echo esc_attr($interval); ?>ms"
-  class="relative isolate flex min-h-[560px] items-center overflow-hidden bg-slate-200 lg:min-h-[640px]"
+  class="relative isolate flex min-h-[560px] items-center overflow-hidden bg-slate-900 lg:min-h-[640px]"
 >
   <div aria-hidden="true" class="absolute inset-0 -z-10">
     <?php foreach ($slides as $i => $slide) : ?>
@@ -37,23 +37,24 @@ $trust = array(
         >
       </div>
     <?php endforeach; ?>
-    <div class="absolute inset-0 bg-white/75 lg:bg-transparent lg:bg-linear-to-r lg:from-white/95 lg:via-white/65 lg:via-45% lg:to-transparent"></div>
+    <div class="absolute inset-0 bg-slate-950/65 lg:bg-transparent lg:bg-linear-to-r lg:from-slate-950/85 lg:via-slate-950/55 lg:via-50% lg:to-slate-950/10"></div>
+    <div class="absolute inset-0 bg-linear-to-t from-slate-950/40 via-transparent to-transparent"></div>
   </div>
 
   <div class="site-container py-20">
     <div class="max-w-2xl">
-      <p <?php echo pwd_reveal(); ?> class="font-mono text-xs uppercase tracking-[0.35em] text-slate-700">Engineered for a brighter tomorrow</p>
-      <h1 <?php echo pwd_reveal(1); ?> data-i18n="home.hero.title" class="mt-7 text-[40px] leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-[64px]">
+      <p <?php echo pwd_reveal(); ?> class="font-mono text-xs uppercase tracking-[0.35em] text-brand-100">Engineered for a brighter tomorrow</p>
+      <h1 <?php echo pwd_reveal(1); ?> data-i18n="home.hero.title" class="mt-7 text-[40px] leading-[1.05] tracking-tight text-white sm:text-5xl xl:text-[64px]">
         <span class="font-light">High-Performance</span>
-        <span class="block font-bold text-brand-500">Windows &amp; Doors.</span>
+        <span class="block font-bold text-brand-300">Windows &amp; Doors.</span>
         <span class="block font-medium">Manufactured in California.</span>
       </h1>
-      <p <?php echo pwd_reveal(2); ?> class="mt-7 max-w-xl text-lg leading-relaxed text-slate-800">
+      <p <?php echo pwd_reveal(2); ?> class="mt-7 max-w-xl text-lg leading-relaxed text-white/85">
         Custom solutions for residential, commercial and multifamily projects, backed by over two decades of manufacturing expertise.
       </p>
       <div <?php echo pwd_reveal(3); ?> class="mt-9 flex flex-col gap-4 sm:flex-row">
-        <?php echo pwd_button('Explore Products', home_url('/products/')); ?>
-        <?php echo pwd_button('For Professionals', home_url('/professionals/'), 'outline'); ?>
+        <?php echo pwd_button('Explore Products', home_url('/products/'), 'light'); ?>
+        <?php echo pwd_button('For Professionals', home_url('/professionals/'), 'outline-light'); ?>
       </div>
     </div>
   </div>

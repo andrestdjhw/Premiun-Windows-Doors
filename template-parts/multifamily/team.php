@@ -8,7 +8,7 @@ $roles = array(
   array('role' => 'Installers', 'protects' => 'Consistency and fit', 'link' => array('Installation Guides', '/resources/technical/?type=installation-guide')),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
       <p class="eyebrow text-brand-600">For the project team</p>

@@ -25,7 +25,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Hardware & Accessories', '/capabilities/hardware/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Hardware & Accessories', '/capabilities/hardware/')),
     'eyebrow' => 'Hardware & Accessories',
     'title' => array(
       array('The details you touch', 'light'),

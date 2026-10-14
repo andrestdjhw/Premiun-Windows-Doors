@@ -65,7 +65,7 @@ $resources = array(
   </div>
 </section>
 
-<section id="products" class="scroll-mt-28 bg-slate-50 py-20 lg:py-28">
+<section id="products" class="scroll-mt-28 bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-2xl">
@@ -108,7 +108,7 @@ $resources = array(
   </div>
 </section>
 
-<section class="bg-brand-950 py-20 text-white lg:py-28">
+<section class="bg-brand-gradient py-20 text-white lg:py-28">
   <div class="site-container grid gap-12 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-4">
       <p class="eyebrow text-brand-100">For professionals</p>

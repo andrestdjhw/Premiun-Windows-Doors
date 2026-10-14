@@ -1,16 +1,16 @@
 <?php
 // "What Premium should prove": la evidencia que reduce la incertidumbre de ejecución.
 $proof = array(
-  array('icon' => 'factory', 'title' => 'Manufacturing capability', 'text' => 'In-house production in Corona, California.', 'href' => '/capabilities/'),
+  array('icon' => 'factory', 'title' => 'Manufacturing capability', 'text' => 'In-house production in Corona, California.', 'href' => '/capabilities/manufacturing/'),
   array('icon' => 'layers', 'title' => 'Product fit', 'text' => 'The right series and configurations for the application.', 'href' => '/solutions/'),
   array('icon' => 'badge-check', 'title' => 'Technical readiness', 'text' => 'Drawings, specifications and certifications available early.', 'href' => '/resources/technical/'),
-  array('icon' => 'file-text', 'title' => 'Documentation', 'text' => 'Consistent documents from submittal to closeout.', 'href' => '/resources/'),
+  array('icon' => 'file-text', 'title' => 'Documentation', 'text' => 'Consistent documents from submittal to closeout.', 'href' => '/resources/technical/'),
   array('icon' => 'file-badge', 'title' => 'Project communication', 'text' => 'A project-support process with clear points of contact.', 'href' => '/professionals/project-support/'),
   array('icon' => 'shield-check', 'title' => 'Warranty & service process', 'text' => 'Defined warranty terms and service requests.', 'href' => '/warranty/'),
   array('icon' => 'award', 'title' => 'Project evidence', 'text' => 'Completed work across residential, multifamily and commercial.', 'href' => '/projects/'),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">What Premium proves</p>

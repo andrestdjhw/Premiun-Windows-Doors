@@ -45,7 +45,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Resources', '/resources/'), array('Warranty', '/warranty/')),
+    'breadcrumbs' => array(array('Resources', '/about/#resources'), array('Warranty', '/warranty/')),
     'eyebrow' => 'Warranty',
     'title' => array(
       array('Built to last for decades.', 'light'),

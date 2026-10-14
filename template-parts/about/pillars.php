@@ -14,7 +14,8 @@ $pillars = array(
   ),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="relative isolate overflow-hidden bg-surface py-20 lg:py-28">
+  <?php echo pwd_brand_mark('right', 'light'); ?>
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Our identity</p>

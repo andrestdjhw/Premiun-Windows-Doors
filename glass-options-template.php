@@ -29,7 +29,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Glass Options', '/capabilities/glass-options/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Glass Options', '/capabilities/glass-options/')),
     'eyebrow' => 'Glass Options',
     'title' => array(
       array('Performance glass', 'light'),
@@ -54,7 +54,7 @@ get_header(); ?>
   )));
   ?>
 
-  <section id="glazing" class="scroll-mt-28 bg-slate-50 py-20 lg:py-28">
+  <section id="glazing" class="scroll-mt-28 bg-surface py-20 lg:py-28">
     <div class="site-container">
       <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
         <p class="eyebrow text-brand-600">Glazing packages</p>

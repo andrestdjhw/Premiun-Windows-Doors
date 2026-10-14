@@ -44,7 +44,7 @@ $all_markets = array(
     </div>
   </section>
 
-  <section class="bg-slate-50 py-20 lg:py-28">
+  <section class="bg-surface py-20 lg:py-28">
     <div class="site-container">
       <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
         <p class="eyebrow text-brand-600">How Premium helps</p>

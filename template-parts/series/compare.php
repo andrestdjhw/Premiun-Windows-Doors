@@ -6,7 +6,7 @@ $groups = array('windows' => 'Windows', 'doors' => 'Doors');
 $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="mx-auto size-5 text-brand-600"><path d="M20 6 9 17l-5-5" /></svg><span class="sr-only">Available</span>';
 $dash = '<span aria-hidden="true" class="text-slate-300">&mdash;</span><span class="sr-only">Not available</span>';
 ?>
-<section id="compare" class="scroll-mt-28 bg-slate-50 py-20 lg:py-28">
+<section id="compare" class="scroll-mt-28 bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Compare the series</p>

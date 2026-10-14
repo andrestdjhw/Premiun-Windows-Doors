@@ -12,7 +12,7 @@ $steps = array(
   'Release & delivery',
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Our process</p>
@@ -23,7 +23,7 @@ $steps = array(
       <span aria-hidden="true" class="absolute inset-x-0 top-5 hidden h-px bg-slate-300 lg:block"></span>
       <?php foreach ($steps as $i => $step) : ?>
         <li <?php echo pwd_reveal($i); ?> class="relative flex gap-5 lg:flex-col lg:gap-0">
-          <span class="relative flex size-10 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-white font-mono text-sm font-medium text-brand-700 ring-8 ring-slate-50">
+          <span class="relative flex size-10 shrink-0 items-center justify-center rounded-full border border-brand-100 bg-white font-mono text-sm font-medium text-brand-700 ring-8 ring-surface">
             <?php echo esc_html(sprintf('%02d', $i + 1)); ?>
           </span>
           <p class="pt-2 text-lg font-semibold leading-snug tracking-tight text-slate-900 lg:pt-6 lg:text-base"><?php echo esc_html($step); ?></p>

@@ -3,7 +3,7 @@
 $choices = array('Frame type', 'Glazing', 'Hardware', 'Operation', 'Reinforcement', 'Configuration');
 $impacts = array('Installation', 'Performance', 'Appearance', 'Project coordination');
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-28">
+<section class="bg-brand-gradient py-20 text-white lg:py-28">
   <div class="site-container grid gap-14 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-5">
       <p class="eyebrow text-brand-100">Design + technical fit</p>

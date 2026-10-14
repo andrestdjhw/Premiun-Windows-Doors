@@ -2,9 +2,9 @@
 // What to show: la evidencia que la página pone al alcance del equipo del proyecto.
 // Los elementos sin 'href' todavía no tienen página propia.
 $evidence = array(
-  array('icon' => 'factory', 'title' => 'Manufacturing capability', 'href' => '/capabilities/'),
+  array('icon' => 'factory', 'title' => 'Manufacturing capability', 'href' => '/capabilities/manufacturing/'),
   array('icon' => 'layers', 'title' => 'Compatible series', 'href' => '/series/#compare'),
-  array('icon' => 'file-text', 'title' => 'Documentation', 'href' => '/resources/'),
+  array('icon' => 'file-text', 'title' => 'Documentation', 'href' => '/resources/technical/'),
   array('icon' => 'badge-check', 'title' => 'Project-support process', 'href' => '/professionals/project-support/'),
   array('icon' => 'file-text', 'title' => 'Drawings', 'href' => '/resources/technical/?type=detail-drawing'),
   array('icon' => 'award', 'title' => 'Certifications', 'href' => '/resources/certifications/'),

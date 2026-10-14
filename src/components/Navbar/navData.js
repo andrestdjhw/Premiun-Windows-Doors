@@ -150,78 +150,13 @@ export function getNavData({ homeUrl = "/", imagesUrl = "", uploadsUrl = "/wp-co
         cta: { label: "Start a Conversation", href: u("/contact/") },
       },
     },
-
-    capabilities: {
-      type: "columns",
-      intro: {
-        eyebrow: "Capabilities",
-        titleLight: "Engineered",
-        titleBold: "and built in California.",
-        text: "In-house manufacturing, testing and custom fabrication give us control over every detail.",
-        cta: { label: "Our Capabilities", href: u("/capabilities/") },
-      },
-      groups: [
-        {
-          title: "Manufacturing",
-          href: u("/capabilities/manufacturing/"),
-          links: [
-            { label: "Custom Sizes & Shapes", href: u("/capabilities/customization/") },
-            { label: "Finishes & Colors", href: u("/capabilities/finishes-colors/") },
-            { label: "Glass Options", href: u("/capabilities/glass-options/") },
-            { label: "Hardware & Accessories", href: u("/capabilities/hardware/") },
-          ],
-        },
-        {
-          title: "Performance",
-          links: [
-            { label: "Energy Efficiency", href: u("/capabilities/energy-efficiency/") },
-            { label: "Testing & Certifications", href: u("/capabilities/certifications/") },
-            { label: "Sound Control", href: u("/capabilities/sound-control/") },
-            { label: "Coastal & High-Wind", href: u("/capabilities/coastal-high-wind/") },
-          ],
-        },
-      ],
-    },
-
-    resources: {
-      type: "columns",
-      intro: {
-        eyebrow: "Resources",
-        titleLight: "Everything",
-        titleBold: "you need, in one place.",
-        text: "Catalogs, technical documents, warranty information and support for homeowners and professionals.",
-        cta: { label: "View All Resources", href: u("/resources/") },
-      },
-      groups: [
-        {
-          title: "Documents",
-          links: [
-            { label: "Product Catalog", href: u("/resources/product-catalog/") },
-            { label: "Brochures", href: u("/resources/brochures/") },
-            { label: "Technical Drawings", href: u("/resources/technical/?type=detail-drawing") },
-            { label: "Installation Guides", href: u("/resources/technical/?type=installation-guide") },
-          ],
-        },
-        {
-          title: "Support",
-          links: [
-            { label: "Warranty Information", href: u("/warranty/") },
-            { label: "Service Request", href: u("/service-request/") },
-            { label: "FAQs", href: u("/faqs/") },
-            { label: "Blog & News", href: u("/blog/") },
-          ],
-        },
-      ],
-    },
   }
 
   const items = [
     { id: "products", label: "Products", menu: menus.products },
     { id: "solutions", label: "Solutions", menu: menus.solutions },
     { id: "professionals", label: "Professionals", menu: menus.professionals },
-    { id: "capabilities", label: "Capabilities", menu: menus.capabilities },
     { id: "projects", label: "Projects", href: u("/projects/") },
-    { id: "resources", label: "Resources", menu: menus.resources },
     { id: "about", label: "About", href: u("/about/") },
   ]
 

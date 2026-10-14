@@ -16,10 +16,12 @@ get_header(); ?>
 
 <main id="content">
   <?php
-  $sections = array('hero', 'solutions', 'manufacturing', 'capability', 'products', 'series', 'professionals', 'projects', 'confidence');
+  $sections = array('hero', 'series', 'products', 'solutions', 'capability', 'manufacturing', 'professionals', 'projects', 'confidence');
+  // Capability y Manufacturing forman un solo bloque oscuro: el timeline se funde hacia abajo con Manufacturing.
+  $section_args = array('capability' => array('join' => 'bottom'));
 
   foreach ($sections as $section) {
-    get_template_part('template-parts/home/' . $section);
+    get_template_part('template-parts/home/' . $section, null, $section_args[$section] ?? array());
   }
   ?>
 </main>

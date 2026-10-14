@@ -1,7 +1,7 @@
 <?php
 // Secciones de contenido reutilizables para páginas informativas. $args['sections'] es una lista;
 // cada sección tiene 'type' y sus datos. El fondo alterna blanco / gris salvo que se indique 'bg'
-// (white | slate | dark). Tipos:
+// (white | slate | surface | dark; slate y surface usan el mismo gris de marca). Tipos:
 //   intro      eyebrow, lead, text, note, facts (label => valor), image (archivo de uploads)
 //   cards      eyebrow, title, text, items (title, text, href, icon, image, meta), cols (2|3|4)
 //   checklist  eyebrow, title, text, items (textos)
@@ -10,7 +10,7 @@
 //   documents  eyebrow, title, text, query (tax => slug, ej. array('pwd_doc_type' => 'certification')), empty
 //   split      eyebrow, title, text, image, button (label, href, variante), reverse
 $sections = $args['sections'] ?? array();
-$backgrounds = array('white' => 'bg-white', 'slate' => 'bg-slate-50', 'dark' => 'bg-brand-950 text-white');
+$backgrounds = array('white' => 'bg-white', 'slate' => 'bg-surface', 'surface' => 'bg-surface', 'dark' => 'bg-brand-gradient text-white');
 $grid_cols = array(2 => 'sm:grid-cols-2', 3 => 'sm:grid-cols-2 lg:grid-cols-3', 4 => 'sm:grid-cols-2 lg:grid-cols-4');
 
 $heading = function ($section, $dark, $class = 'max-w-2xl') {
@@ -102,7 +102,7 @@ foreach ($sections as $section) :
             <?php $heading($section, $dark, 'lg:col-span-5'); ?>
             <ul class="grid gap-px self-center overflow-hidden rounded-sm sm:grid-cols-2 lg:col-span-7 <?php echo $dark ? 'bg-white/10' : 'bg-slate-200'; ?>">
               <?php foreach ($section['items'] as $i => $item) : ?>
-                <li <?php echo pwd_reveal($i % 2); ?> class="flex items-center gap-4 p-6 font-medium <?php echo $dark ? 'bg-brand-950' : 'bg-white text-slate-900'; ?>">
+                <li <?php echo pwd_reveal($i % 2); ?> class="flex items-center gap-4 p-6 font-medium <?php echo $dark ? 'bg-brand-950/60' : 'bg-white text-slate-900'; ?>">
                   <?php echo pwd_icon('badge-check', 'size-6 shrink-0 text-brand-500') . esc_html($item); ?>
                 </li>
               <?php endforeach; ?>

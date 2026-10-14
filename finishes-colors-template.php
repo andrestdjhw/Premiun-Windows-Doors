@@ -17,7 +17,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Finishes & Colors', '/capabilities/finishes-colors/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Finishes & Colors', '/capabilities/finishes-colors/')),
     'eyebrow' => 'Finishes & Colors',
     'title' => array(
       array('Color that is built in,', 'light'),

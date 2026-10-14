@@ -61,7 +61,7 @@ $resources = array(
   </div>
 </section>
 
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container space-y-20">
     <?php foreach ($groups as $group => $info) :
       $styles = array_values(array_filter($matrix[$group], function ($style) use ($page) { return isset($style['series'][$page['slug']]); }));
@@ -101,7 +101,7 @@ $resources = array(
 </section>
 
 <?php if ($page['features']) : ?>
-  <section class="bg-brand-950 py-20 text-white lg:py-28">
+  <section class="bg-brand-gradient py-20 text-white lg:py-28">
     <div class="site-container">
       <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
         <p class="eyebrow text-brand-100">Key benefits</p>
@@ -109,7 +109,7 @@ $resources = array(
       </div>
       <ul class="mt-14 grid gap-px overflow-hidden rounded-sm bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
         <?php foreach ($page['features'] as $i => $feature) : ?>
-          <li <?php echo pwd_reveal($i % 3); ?> class="flex items-center gap-4 bg-brand-950 p-6 font-medium">
+          <li <?php echo pwd_reveal($i % 3); ?> class="flex items-center gap-4 bg-brand-950/60 p-6 font-medium">
             <?php echo pwd_icon('badge-check', 'size-6 shrink-0 text-brand-500'); ?>
             <?php echo esc_html($feature); ?>
           </li>

@@ -5,7 +5,7 @@ $legal = wp_parse_args($args, array('title' => get_the_title(), 'updated' => '',
 ?>
 
 <main id="content" class="bg-white">
-  <header class="border-b border-slate-200 bg-slate-50">
+  <header class="border-b border-slate-200 bg-surface">
     <div class="mx-auto max-w-[1536px] px-5 py-14 xl:px-10 xl:py-20 2xl:px-12">
       <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">Legal</p>
       <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 xl:text-5xl"><?php echo esc_html($legal['title']); ?></h1>

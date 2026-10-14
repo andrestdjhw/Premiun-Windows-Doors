@@ -102,9 +102,9 @@ export default {
   patterns,
   keys: {
     "home.hero.title":
-      '<span class="font-light">Ventanas y puertas</span> <span class="block font-bold text-brand-500">de alto desempeño.</span> <span class="block font-medium">Fabricadas en California.</span>',
+      '<span class="font-light">Ventanas y puertas</span> <span class="block font-bold text-brand-300">de alto desempeño.</span> <span class="block font-medium">Fabricadas en California.</span>',
     "about.hero.title":
-      '<span class="block font-light">Fabricando</span> <span class="block font-bold text-brand-500">ventanas y puertas</span> <span class="block font-medium">en California desde 2001.</span>',
+      '<span class="block font-light">Fabricando</span> <span class="block font-bold text-brand-300">ventanas y puertas</span> <span class="block font-medium">en California desde 2001.</span>',
     "legal.english-only":
       "Este documento legal está disponible solo en inglés. Si tiene preguntas, escríbanos a <a href=\"mailto:info@premiumwindows.com\" class=\"font-medium text-brand-700 underline\">info@premiumwindows.com</a>.",
   },

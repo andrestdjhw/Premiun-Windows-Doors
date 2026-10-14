@@ -6,7 +6,7 @@ $groups = array(
   array('title' => 'Find documents by series', 'taxonomy' => 'pwd_series', 'param' => 'series'),
 );
 ?>
-<section class="bg-slate-50 py-20 lg:py-24">
+<section class="bg-surface py-20 lg:py-24">
   <div class="site-container grid gap-12 lg:grid-cols-2 lg:gap-16">
     <?php foreach ($groups as $i => $group) :
       $terms = get_terms(array('taxonomy' => $group['taxonomy'], 'hide_empty' => false));

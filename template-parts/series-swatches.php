@@ -11,7 +11,7 @@ $chip = function ($color) {
   );
 };
 ?>
-<section class="<?php echo $block['bg'] === 'slate' ? 'bg-slate-50' : 'bg-white'; ?> py-20 lg:py-28">
+<section class="<?php echo $block['bg'] === 'slate' ? 'bg-surface' : 'bg-white'; ?> py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600"><?php echo esc_html($block['eyebrow']); ?></p>

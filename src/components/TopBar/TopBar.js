@@ -7,7 +7,7 @@ const link = "inline-flex items-center gap-2 whitespace-nowrap transition-colors
 
 export default function TopBar() {
   return (
-    <div className="h-10 border-b border-slate-200/70 bg-white text-[13px] text-slate-600">
+    <div className="h-10 border-b border-mist/70 bg-surface text-[13px] text-slate-600">
       <div className="mx-auto flex h-full max-w-[1536px] items-center justify-between gap-4 px-5 lg:grid lg:grid-cols-[1fr_auto_1fr] xl:px-10 2xl:px-12">
         <div className="flex items-center gap-5">
           <a href={`mailto:${contact.email}`} className={`${link} max-md:hidden`}>

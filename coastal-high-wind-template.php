@@ -19,7 +19,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Coastal & High-Wind', '/capabilities/coastal-high-wind/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Coastal & High-Wind', '/capabilities/coastal-high-wind/')),
     'eyebrow' => 'Coastal & High-Wind',
     'title' => array(
       array('Demanding locations need', 'light'),

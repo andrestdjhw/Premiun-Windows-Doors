@@ -18,7 +18,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Energy Efficiency', '/capabilities/energy-efficiency/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Energy Efficiency', '/capabilities/energy-efficiency/')),
     'eyebrow' => 'Energy Efficiency',
     'title' => array(
       array('Year-round comfort,', 'light'),

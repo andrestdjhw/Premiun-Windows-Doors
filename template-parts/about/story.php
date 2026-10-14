@@ -6,7 +6,8 @@ $milestones = array(
   array('year' => 'Today', 'title' => 'Corona, California', 'text' => 'Made-to-order windows and doors across multiple vinyl and aluminum product series.'),
 );
 ?>
-<section class="bg-white py-20 lg:py-28">
+<section class="relative isolate overflow-hidden bg-white py-20 lg:py-28">
+  <?php echo pwd_brand_mark('bottom-left', 'light'); ?>
   <div class="site-container grid gap-14 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-7">
       <p class="eyebrow text-brand-600">Company story</p>

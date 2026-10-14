@@ -26,7 +26,7 @@ get_header(); ?>
 <main id="content">
   <?php
   get_template_part('template-parts/page-hero', null, array(
-    'breadcrumbs' => array(array('Capabilities', '/capabilities/'), array('Sound Control', '/capabilities/sound-control/')),
+    'breadcrumbs' => array(array('Capabilities', '/about/#capabilities'), array('Sound Control', '/capabilities/sound-control/')),
     'eyebrow' => 'Sound Control',
     'title' => array(
       array('Quieter rooms', 'light'),

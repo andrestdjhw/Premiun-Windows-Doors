@@ -1,5 +1,6 @@
 <?php
 // Las 6 categorías del brief. Technical y Brochures muestran cuántos documentos hay publicados.
+// $args['id']: ancla opcional (About la usa como #resources).
 $count_documents = function ($doc_type = '') {
   $clause = $doc_type
     ? array('taxonomy' => 'pwd_doc_type', 'field' => 'slug', 'terms' => $doc_type)
@@ -25,7 +26,7 @@ $categories = array(
   array('icon' => 'badge-check', 'title' => 'FAQs', 'text' => 'Answers to common questions about products, ordering and support.', 'href' => '/faqs/', 'count' => null),
 );
 ?>
-<section class="bg-white py-20 lg:py-28">
+<section<?php if (!empty($args['id'])) printf(' id="%s"', esc_attr($args['id'])); ?> class="scroll-mt-28 bg-surface py-20 lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-2xl">
       <p class="eyebrow text-brand-600">Resource categories</p>

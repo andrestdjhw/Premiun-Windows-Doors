@@ -6,7 +6,7 @@ get_header(); ?>
 <main id="content">
   <?php while (have_posts()) : the_post(); ?>
     <article>
-      <header class="bg-slate-50 py-16 lg:py-24">
+      <header class="bg-surface py-16 lg:py-24">
         <div class="site-container"><div class="mx-auto max-w-3xl">
           <nav aria-label="Breadcrumb" class="text-sm text-slate-500">
             <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="transition-colors hover:text-brand-700">Blog & News</a>

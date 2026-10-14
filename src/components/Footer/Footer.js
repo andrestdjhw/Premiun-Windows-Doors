@@ -17,7 +17,15 @@ export default function Footer({ config }) {
 
   return (
     <footer className="bg-brand-950 text-white/70">
-      <div className="bg-linear-to-r from-brand-900 via-brand-700 to-brand-500">
+      <div className="relative isolate overflow-hidden bg-linear-to-r from-brand-900 via-brand-700 to-brand-500">
+        {/* Isotipo de marca como marca de agua (mismo recurso que pwd_brand_mark() en PHP). */}
+        <img
+          src={config.markUrl}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none absolute top-1/2 right-[8%] -z-10 w-72 max-w-none -translate-y-1/2 opacity-[0.08] brightness-0 invert select-none lg:w-96"
+        />
         <div className="mx-auto flex max-w-[1536px] flex-col gap-6 px-5 py-12 md:flex-row md:items-center md:justify-between lg:py-14 xl:px-10 2xl:px-12">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">Have a project in mind?</h2>
@@ -49,7 +57,7 @@ export default function Footer({ config }) {
       <div className="mx-auto max-w-[1536px] px-5 xl:px-10 2xl:px-12">
         <div className="grid gap-12 py-12 lg:grid-cols-12 lg:gap-8 lg:py-16">
           <div className="lg:col-span-4 lg:pr-8">
-            <Logo href={config.homeUrl} logoUrl={config.logoUrl} siteName={siteName} inverted />
+            <Logo href={config.homeUrl} logoUrl={config.logoMonoUrl} siteName={siteName} inverted />
             <p className="mt-6 max-w-sm text-sm leading-relaxed">
               High-performance windows and doors engineered and built in California for residential, multifamily and
               commercial projects.

@@ -7,7 +7,7 @@ $scope = array(
   array('title' => 'Project requirements', 'text' => 'Held from specification through delivery.'),
 );
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-28">
+<section class="bg-brand-gradient py-20 text-white lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
       <p class="eyebrow text-brand-100">Consistency at scale</p>
@@ -19,7 +19,7 @@ $scope = array(
 
     <ol class="mt-14 grid gap-px overflow-hidden rounded-sm bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
       <?php foreach ($scope as $i => $item) : ?>
-        <li <?php echo pwd_reveal($i); ?> class="bg-brand-950 p-8">
+        <li <?php echo pwd_reveal($i); ?> class="bg-brand-950/60 p-8">
           <span class="font-mono text-sm text-brand-500"><?php echo esc_html(sprintf('%02d', $i + 1)); ?></span>
           <h3 class="mt-5 text-xl font-semibold tracking-tight"><?php echo esc_html($item['title']); ?></h3>
           <p class="mt-2 text-sm leading-relaxed text-white/60"><?php echo esc_html($item['text']); ?></p>

@@ -27,7 +27,7 @@ $swatches = function ($colors) {
 };
 $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mt-0.5 size-5 shrink-0 text-brand-600"><path d="m5 12 5 5L20 7" /></svg>';
 ?>
-<section class="bg-slate-50">
+<section class="bg-surface">
   <div class="site-container grid items-center gap-12 py-16 lg:grid-cols-12 lg:gap-16 lg:py-24">
     <div class="lg:col-span-6">
       <nav aria-label="Breadcrumb">
@@ -135,7 +135,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
         </div>
       <?php endif; ?>
       <?php if (!empty($product['benefits'])) : ?>
-        <div <?php echo pwd_reveal(2); ?> class="rounded-sm bg-brand-950 p-8 text-white">
+        <div <?php echo pwd_reveal(2); ?> class="rounded-sm bg-brand-gradient p-8 text-white">
           <h3 class="text-lg font-semibold tracking-tight"><?php echo esc_html($product['benefits']['title']); ?></h3>
           <p class="mt-3 leading-relaxed text-white/70"><?php echo esc_html($product['benefits']['text']); ?></p>
           <ul class="mt-6 grid gap-3 sm:grid-cols-2">
@@ -149,7 +149,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
   </div>
 </section>
 
-<section class="bg-slate-50 py-20 lg:py-28">
+<section class="bg-surface py-20 lg:py-28">
   <div class="site-container grid gap-12 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-4">
       <p class="eyebrow text-brand-600">Specifications</p>
@@ -200,7 +200,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 <?php endif; ?>
 
 <?php if ($product['blinds']) : ?>
-  <section id="blinds" class="scroll-mt-28 bg-brand-950 py-20 text-white lg:py-28">
+  <section id="blinds" class="scroll-mt-28 bg-brand-gradient py-20 text-white lg:py-28">
     <div class="site-container grid gap-12 lg:grid-cols-12 lg:gap-16">
       <div <?php echo pwd_reveal(); ?> class="lg:col-span-4">
         <p class="eyebrow text-brand-100">Upgrade</p>
@@ -247,7 +247,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 <?php endif; ?>
 
 <?php if (!empty($product['textures'])) : ?>
-  <section class="bg-slate-50 py-20 lg:py-28" data-glass-textures>
+  <section class="bg-surface py-20 lg:py-28" data-glass-textures>
     <div class="site-container">
       <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
@@ -310,7 +310,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
   </section>
 <?php endif; ?>
 
-<section id="downloads" class="scroll-mt-28 bg-slate-50 py-20 lg:py-28">
+<section id="downloads" class="scroll-mt-28 bg-surface py-20 lg:py-28">
   <div class="site-container grid gap-12 lg:grid-cols-12 lg:gap-16">
     <div <?php echo pwd_reveal(); ?> class="lg:col-span-4">
       <p class="eyebrow text-brand-600">Downloads</p>
@@ -380,7 +380,7 @@ $check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 <?php endif; ?>
 
 <?php if ($siblings) : ?>
-  <section class="bg-slate-50 py-20 lg:py-28">
+  <section class="bg-surface py-20 lg:py-28">
     <div class="site-container">
       <div <?php echo pwd_reveal(); ?> class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>

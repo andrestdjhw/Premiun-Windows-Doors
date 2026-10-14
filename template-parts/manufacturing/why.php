@@ -2,7 +2,7 @@
 // Why it matters: cuándo la capacidad de manufactura tiene valor comercial.
 $outcomes = array('Consistency', 'Responsiveness', 'Product breadth', 'Technical readiness', 'Repeatability');
 ?>
-<section class="bg-brand-950 py-20 text-white lg:py-28">
+<section class="bg-brand-gradient py-20 text-white lg:py-28">
   <div class="site-container">
     <div <?php echo pwd_reveal(); ?> class="max-w-3xl">
       <p class="eyebrow text-brand-100">Why it matters</p>
@@ -14,7 +14,7 @@ $outcomes = array('Consistency', 'Responsiveness', 'Product breadth', 'Technical
 
     <ul class="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
       <?php foreach ($outcomes as $i => $outcome) : ?>
-        <li <?php echo pwd_reveal($i); ?> class="bg-brand-950 p-6 lg:p-8">
+        <li <?php echo pwd_reveal($i); ?> class="bg-brand-950/60 p-6 lg:p-8">
           <?php echo pwd_icon('badge-check', 'size-6 text-brand-500'); ?>
           <p class="mt-5 text-xl font-semibold tracking-tight"><?php echo esc_html($outcome); ?></p>
         </li>
