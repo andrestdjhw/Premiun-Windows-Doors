@@ -25,11 +25,20 @@ function pwd_navbar_config() {
     'homeUrl' => home_url('/'),
     'imagesUrl' => get_theme_file_uri('/assets/images/nav/'),
     'uploadsUrl' => wp_upload_dir()['baseurl'] . '/',
-    'logoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : '',
+    'logoUrl' => $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : get_theme_file_uri('/assets/images/brand/logo-horizontal.png'),
     'siteName' => html_entity_decode(get_bloginfo('name'), ENT_QUOTES),
     'quoteUrl' => home_url('/request-a-quote/'),
   );
 }
+
+// Favicon con el isotipo de marca (assets/images/brand/), salvo que se defina un Icono del sitio en WordPress.
+add_action('wp_head', function () {
+  if (has_site_icon()) return;
+  $dir = get_theme_file_uri('/assets/images/brand/');
+  printf('<link rel="icon" href="%s" sizes="32x32">' . "\n", esc_url($dir . 'icon-32.png'));
+  printf('<link rel="icon" href="%s" sizes="512x512">' . "\n", esc_url($dir . 'icon-512.png'));
+  printf('<link rel="apple-touch-icon" href="%s">' . "\n", esc_url($dir . 'icon-180.png'));
+});
 
 // Datos de contacto de la empresa para las plantillas PHP (páginas legales).
 function pwd_contact_info() {

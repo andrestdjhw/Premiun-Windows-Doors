@@ -4,15 +4,21 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #eef4fb;
-  --color-brand-100: #dbe7f6;
-  --color-brand-300: #7fb3ec;
-  --color-brand-500: #1f74d1;
-  --color-brand-600: #1565c0;
-  --color-brand-700: #0f4f99;
-  --color-brand-800: #0b3f7c;
-  --color-brand-900: #0a2e5c;
-  --color-brand-950: #071d3b;
+  /* Paleta de marca (branding 2026-10). Oficiales: brand-600 #1668a8, brand-800 #0c4977 (color del logo),
+     mist #c5ced5, ink #383b3d, wine #4f242b. El resto de la escala brand se deriva del mismo tono acero. */
+  --color-brand-50: #eef3f7;
+  --color-brand-100: #dbe5ee;
+  --color-brand-300: #8db9dc;
+  --color-brand-500: #2a7bbd;
+  --color-brand-600: #1668a8;
+  --color-brand-700: #115889;
+  --color-brand-800: #0c4977;
+  --color-brand-900: #0a3a5e;
+  --color-brand-950: #072842;
+
+  --color-mist: #c5ced5;
+  --color-ink: #383b3d;
+  --color-wine: #4f242b;
 
   --animate-nav-in: nav-in 180ms ease-out;
   --animate-btn-pop: btn-pop 300ms ease-in-out;
@@ -256,8 +262,8 @@
   z-index: 1;
   transition-duration: 800ms, 800ms, 120ms, 300ms, 150ms, 150ms, 150ms;
   box-shadow:
-    var(--shadow-x, 0px) var(--shadow-y, 28px) 48px -16px rgb(7 29 59 / 0.35),
-    0 8px 16px -8px rgb(7 29 59 / 0.15);
+    var(--shadow-x, 0px) var(--shadow-y, 28px) 48px -16px rgb(7 40 66 / 0.35),
+    0 8px 16px -8px rgb(7 40 66 / 0.15);
 }
 
 [data-tilt].is-tilting::after {
